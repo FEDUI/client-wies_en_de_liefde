@@ -13,19 +13,6 @@ var reload = browserSync.reload;
 var notify = require('gulp-notify');
 var browserify = require('gulp-browserify');
 
-// Compress and combine JS files
-gulp.task('js', function() {
-
-	return gulp.src(config.js.src)
-		.pipe(plumber({
-		    errorHandler: config.error
-		}))
-		.pipe(uglify())
-		.pipe(rename(config.js.destFile))
-		.pipe(gulp.dest(config.base + config.js.folder))
-
-});
-
 // Compress Css
 gulp.task('sass', function() {
 
@@ -47,7 +34,7 @@ gulp.task('sass', function() {
 
 // module.exports
 gulp.task('browserify', function() {
-   	
+
   	return gulp.src(config.js.src)
   		.pipe(plumber({
             errorHandler: config.error
@@ -63,7 +50,7 @@ gulp.task('browserify', function() {
 
 // Static server
 gulp.task('browser-sync', function() {
-   
+
     browserSync.init({
         proxy: {
  	   		target: "http://local.wedl.nl",
@@ -92,5 +79,3 @@ gulp.task('server', function() {
 	);
 
 });
-
-
