@@ -19,7 +19,7 @@ var config = {
 
     js: {
         watch: ['src/js/**/*.js'],
-        src: ['./src/js/**/*.js'],
+        src: ['./src/js/main.js'],
         folder: 'js/',
         destFile: 'main.min.js'
     },
