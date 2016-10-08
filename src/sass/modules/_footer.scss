@@ -1,0 +1,22 @@
+footer {
+  padding: 3rem 0 5rem 0;
+
+  background: url("../img/hero/footer.jpg");
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  color: white;
+
+  article {
+    @include container;
+
+    > * {
+      max-width: 30em;
+    }
+  }
+
+  p a {
+    color: inherit;
+  }
+}

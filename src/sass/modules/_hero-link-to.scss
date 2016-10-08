@@ -1,0 +1,40 @@
+.hero-link-to {
+  border-top: $after-height solid $yellow;
+  border-bottom: $after-height solid $yellow;
+
+  a {
+    @include set($page-header, "height");
+
+    display: block;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("../img/hero/bus.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    color: white;
+    text-decoration: none;
+
+    @include hocus {
+
+      p {
+        // background: rgba($yellow, 1);
+        box-shadow: 10rem 0 0 $yellow inset;
+      }
+    }
+  }
+  h2 {
+    @include set($hero-font-size);
+    margin: 0;
+  }
+  p {
+    background: rgba($yellow, .8);
+    padding: .3rem 3rem;
+
+    transition: .5s ease-out box-shadow;
+  }
+}
