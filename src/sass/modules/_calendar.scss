@@ -1,0 +1,122 @@
+$calendar-wide: 500px;
+
+.calendar {
+  margin: 1.5rem auto;
+
+  @include breakpoint($bp-container) {
+    margin: 3rem auto;
+  }
+
+  @include breakpoint(1200px) {
+    margin: 5rem auto;
+  }
+
+  h2 {
+    @include container("false");
+  }
+  ul {
+    @include container;
+  }
+
+  li {
+    display: block;
+    margin: 1rem 0;
+    @include set($base-font-size);
+
+    @include breakpoint(730px) {
+      max-width: 80%;
+    }
+  }
+  a {
+    display: flex;
+    flex-flow: row wrap;
+
+    padding: 0;
+    margin: 0;
+
+    text-decoration: none;
+
+    @include hocus {
+      .location {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .date {
+    width: 100%;
+    display: block;
+
+    padding: .3rem 0;
+    box-sizing: border-box;
+
+    background-color: $red;
+    color: white;
+    text-align: center;
+
+    @include breakpoint($calendar-wide) {
+      width: 6rem;
+      display: inline-block;
+    }
+
+    &-year, &-month, &-day {
+      display: inline-block;
+      padding: 0 .5rem;
+      vertical-align: middle;
+
+      @include breakpoint($calendar-wide) {
+        display: block;
+        padding: 0;
+      }
+    }
+    &-day {
+      font-size: 200%;
+      line-height: 1;
+      padding: .2rem 0;
+    }
+  }
+  .location {
+    width: 100%;
+
+    display: block;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-end;
+
+    padding: .3em 1rem;
+    box-sizing: border-box;
+
+    background: rgba(white, .8);
+    color: $light-red;
+
+    @include breakpoint($calendar-wide) {
+      width: calc(99% - 6rem);
+
+      display: inline-block;
+      display: inline-flex;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    &-name {
+      font-size: 130%;
+    }
+    &-city {
+      color: rgba($light-red, .6);
+    }
+  }
+
+  .past {
+    .date {
+      background: $gray;
+    }
+    .location {
+      color: $gray;
+      &-city {
+        color: inherit;
+      }
+    }
+  }
+}

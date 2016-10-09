@@ -17,6 +17,11 @@
 
 	add_action( 'wp_enqueue_scripts', 'wedl_scripts' );
 
+	function register_my_menu() {
+  	register_nav_menu('header-menu',__( 'Header Menu' ));
+	}
+	add_action( 'init', 'register_my_menu' );
+
 	class Template {
 
 	    function Render($file, $args = array()){

@@ -5,3 +5,9 @@
 	<?php wp_head(); ?>
 </head>
 <body>
+	<header>
+		<?php Template::Render('main-nav'); ?>
+		<div class="menu-indicator-bar">
+
+		</div>
+	</header>

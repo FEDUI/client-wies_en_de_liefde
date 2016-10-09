@@ -11,6 +11,7 @@ var browserSync = require('browser-sync').create();
 var plumber = require('gulp-plumber');
 var reload = browserSync.reload;
 var notify = require('gulp-notify');
+var sassGlob = require('gulp-sass-glob');
 var browserify = require('gulp-browserify');
 
 // Compress Css
@@ -20,6 +21,7 @@ gulp.task('sass', function() {
 		.pipe(plumber({
 		    errorHandler: config.error
 		}))
+		.pipe(sassGlob())
 		.pipe(sass({outputStyle: 'compressed'}))
 		.pipe(autoprefixer({
 
@@ -30,6 +32,16 @@ gulp.task('sass', function() {
 		.pipe(rename(config.sass.destFile))
 		.pipe(gulp.dest(config.base + config.sass.folder))
 
+});
+
+// copy images
+gulp.task('img', function() {
+
+	return gulp.src(config.img.src)
+		.pipe(plumber({
+			errorHandler: config.error
+		}))
+		.pipe(gulp.dest(config.base + config.img.folder));
 });
 
 // module.exports
@@ -73,6 +85,7 @@ gulp.task('server', function() {
 
 	return runSequence(
 		['sass'],
+		'img',
 		'browserify',
 		'browser-sync',
 		'watch'

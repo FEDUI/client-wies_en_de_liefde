@@ -17,6 +17,11 @@ var config = {
         destFile: 'style.min.css'
     },
 
+    img: {
+        src: ['./src/img/**/*'],
+        folder: 'img/'
+    },
+
     js: {
         watch: ['src/js/**/*.js'],
         src: ['./src/js/main.js'],

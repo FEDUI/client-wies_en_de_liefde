@@ -1,0 +1,58 @@
+.main-nav {
+  padding: .6rem $padding-md;
+  box-sizing: border-box;
+
+  color: white;
+  background-color: $red;
+  font-size: $menu-font-size;
+  font-weight: 300;
+
+  ul {
+
+  }
+  li {
+    display: inline-block;
+    margin: 0 $padding-l;
+  }
+  a {
+    position: relative;
+    color: inherit;
+    padding: 0 $after-height;
+    text-decoration: none;
+
+    @include breakpoint(700px) {
+      padding: 0;
+    }
+
+    &:after {
+      content: " ";
+      display: block;
+
+      position: absolute;
+      width: 100%; height: $after-height;
+      transform: translateY($after-height) scaleX(0);
+      transition: .3s transform;
+      transform-origin: 0%;
+
+      background: rgba(pink, .6);
+      z-index: 80;
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+
+      &:after {
+        transform: translateY($after-height) scaleX(1);
+      }
+    }
+  }
+}
+
+.menu-indicator-bar {
+  display: block;
+  width: 100%; height: $after-height;
+  transform: translateY(-#{$after-height});
+  margin-bottom: -#{$after-height};
+  background: rgba($light-red, .8);
+}
