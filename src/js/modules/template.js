@@ -5,14 +5,14 @@
 var template = {};
 var Handlebars = require('handlebars');
 
-template.render = function(events) {
+template.render = function(events, templateHTML, destination) {
 
   var _events = events;
 
-  var eventsContainer = document.querySelector('#calendar-template').innerHTML;
-	var HTMLTemplate = Handlebars.compile(eventsContainer);
+  var container = document.querySelector(templateHTML).innerHTML;
+	var HTMLTemplate = Handlebars.compile(container);
 	var html = HTMLTemplate(_events);
-	document.querySelector('.eventList').innerHTML = html;
+	document.querySelector(destination).innerHTML = html;
 
 };
 

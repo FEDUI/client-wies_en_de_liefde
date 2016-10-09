@@ -15,6 +15,7 @@
 	<section class="calendar">
 		<h2>Agenda</h2>
 		<ul class="eventList"></ul>
+		<a href="" class="event-button">Bekijk alle evenementen</a>
 	</section>
 
 	<section class="hero-link-to">
@@ -27,57 +28,45 @@
 	<section class="news">
 		<h2>Laatste nieuws</h2>
 		<ul class="news-overview">
-			<li class="news-overview--item">
-				<a href="#">
-					<div class="img-container">
-						<img src="http://unsplash.it/400" alt="" />
-					</div>
-					<p>// KUNST10DAAGSE BUSTOUR W&❤️ \\</p>
-					<p>Dank aan De Flessenpost & Harry Steunenberg voor het plaatsen van dit fijne artikel!</p>
-					<p>We hopen jullie natuurlijk allemaal te zien in ons theater op wielen! Ook het moment om jullie veel nieuw werk te laten horen en jullie op te warmen voor ons eerste album ❤️</p>
-				</a>
-			</li>
-			<li class="news-overview--item">
-				<a href="#">
-					<div class="img-container">
-						<img src="http://unsplash.it/400" alt="" />
-					</div>
-					<p>Just another day @ the office ♥️</p>
-				</a>
-			</li>
-			<li class="news-overview--item">
-				<a href="#">
-					<div class="img-container">
-						<img src="http://unsplash.it/400" alt="" />
-					</div>
-					<p>// Wies en de Liefde Kunst10Daagse BusTour \\</p>
-					<p>Fijn nieuws! We hebben een vergunning gekregen om met ons rijdende theatertje midden op het plein in Bergen te staan tijdens de Kunst10Daagse in Oktober.</p>
-					<p>We spelen 5 dagen in totaal, 3 muziekvoorstellingen per dag, dus koop je kaartje bij de chauffeur en stap maar in! </p>
-				</a>
-			</li>
 		</ul>
 	</section>
 
 </main>
 
 <script id="calendar-template" type="text/x-handlebars-template">
-		{{#each this}}
-			<li {{#if this.done}}class="past"{{/if}}>
-				<a href="{{link}}">
-					<div class="date">
-						<span class="date-month">{{date.monthName}}</span>
-						<span class="date-day">{{date.day}}</span>
-						<span class="date-year">{{date.year}}</span>
-					</div>
-					<div class="location">
-						<p class="location-name">{{locationName}}</p>
-						<p class="location-city">{{city}}</p>
-					</div>
-				</a>
-			</li>
-		{{/each}}
+	{{#each this}}
+		<li {{#if this.done}}class="past"{{/if}}>
+			<a href="{{link}}">
+				<div class="date">
+					<span class="date-month">{{date.monthName}}</span>
+					<span class="date-day">{{date.day}}</span>
+					<span class="date-year">{{date.year}}</span>
+				</div>
+				<div class="location">
+					<p class="location-name">{{locationName}}</p>
+					<p class="location-city">{{city}}</p>
+				</div>
+			</a>
+		</li>
+	{{/each}}
+</script>
 
-	<a href="" class="event-button">Bekijk alle evenementen</a>
+<script id="news-template" type="text/x-handlebars-template">
+	{{#each this}}
+		<li class="news-overview--item">
+			{{#if this.url}}<a href="{{url}}">{{/if}}
+				{{#if this.event}}<h2>Optreden</h2>{{/if}}
+				{{#if this.image}}
+					<div class="img-container">
+						{{#each this.image}}
+							<img src="{{this}}" alt="" />
+						{{/each}}
+					</div>
+				{{/if}}
+				{{#if this.text}}<p>{{text}}</p>{{/if}}
+			{{#if this.url}}</a>{{/if}}
+		</li>
+	{{/each}}
 </script>
 
 <?php get_footer(); ?>

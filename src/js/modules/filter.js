@@ -70,7 +70,7 @@ filter.events = function(data) {
 
     var eventsCombined = comingEvents.concat(pastEvents);
 
-    template.render(eventsCombined);
+    template.render(eventsCombined, '#calendar-template', '.eventList');
 
 };
 
@@ -112,5 +112,81 @@ filter.parseDate = function(fbDate) {
     };
 
 };
+
+
+
+
+
+
+
+
+
+var filteredPosts = [];
+var counter = 0;
+
+// Filter the Posts data
+filter.posts = function(data, postAmount) {
+
+  var _data = JSON.parse(data);
+  var postsData = _data.data[0];
+  var post = {};
+
+  if ( postsData.type === 'photo' ) {
+    post.photo = 'photo';
+
+    if ( postsData.description ) {
+      post.text = postsData.description;
+    }
+
+    if ( postsData.media ) {
+      post.image = [postsData.media.image.src];
+    }
+  }
+
+  if ( postsData.type === 'event' ) {
+    post.event = 'event';
+
+    if ( postsData.media ) {
+      post.image = [postsData.media.image.src];
+    }
+
+    post.text = postsData.title;
+  }
+
+  if ( postsData.type === 'album' ) {
+    post.album = 'album';
+
+    if (postsData.subattachments) {
+
+      post.image = [];
+
+      postsData.subattachments.data.forEach(function(photo) {
+        post.image.push(photo.media.image.src);
+      });
+    }
+  }
+
+  if ( postsData.type === 'video_autoplay' || postsData.type === 'video_share_youtube' ) {
+    if ( postsData.target.url ) {
+      post.image = [postsData.media.image.src];
+    }
+
+    if (postsData.title) {
+      post.text = postsData.title;
+    }
+  }
+
+  if ( postsData.target ) {
+    post.url = postsData.target.url;
+  }
+
+  filteredPosts.push(post);
+  counter ++;
+
+  if ( counter >= postAmount ) {
+    template.render(filteredPosts, '#news-template', '.news-overview');
+  }
+};
+
 
 module.exports = filter;
