@@ -10,65 +10,11 @@
 	<section class="page-header">
 		<!-- video or img -->
 		<iframe src="https://www.youtube.com/embed/SkzVbueWuy4" frameborder="0"></iframe>
-		<!-- <iframe src="https://www.youtube.com/embed/TL2cu_F80co" frameborder="0"></iframe> -->
 	</section>
 
 	<section class="calendar">
 		<h2>Agenda</h2>
-		<ul>
-			<li>
-				<a href="#">
-					<div class="date">
-						<span class="date-month">Aug</span>
-						<span class="date-day">12</span>
-						<span class="date-year">2016</span>
-					</div>
-					<div class="location">
-						<p class="location-name">Cultureel Centrum de Beiengaarde</p>
-						<p class="location-city">Bergen aan Zee</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="date">
-						<span class="date-month">Sep</span>
-						<span class="date-day">5</span>
-						<span class="date-year">2016</span>
-					</div>
-					<div class="location">
-						<p class="location-name">020</p>
-						<p class="location-city">Amsterdam</p>
-					</div>
-				</a>
-			</li>
-			<li>
-				<a href="#">
-					<div class="date">
-						<span class="date-month">Dec</span>
-						<span class="date-day">5</span>
-						<span class="date-year">2016</span>
-					</div>
-					<div class="location">
-						<p class="location-name">Sinterklaas avondconcert</p>
-						<p class="location-city">Egmond</p>
-					</div>
-				</a>
-			</li>
-			<li class="past">
-				<a href="#">
-					<div class="date">
-						<span class="date-month">Jul</span>
-						<span class="date-day">30</span>
-						<span class="date-year">2017</span>
-					</div>
-					<div class="location">
-						<p class="location-name">Tivoli - Rondo</p>
-						<p class="location-city">Utrecht</p>
-					</div>
-				</a>
-			</li>
-		</ul>
+		<ul class="eventList"></ul>
 	</section>
 
 	<section class="hero-link-to">
@@ -113,5 +59,25 @@
 	</section>
 
 </main>
+
+<script id="calendar-template" type="text/x-handlebars-template">
+		{{#each this}}
+			<li {{#if this.done}}class="past"{{/if}}>
+				<a href="{{link}}">
+					<div class="date">
+						<span class="date-month">{{date.monthName}}</span>
+						<span class="date-day">{{date.day}}</span>
+						<span class="date-year">{{date.year}}</span>
+					</div>
+					<div class="location">
+						<p class="location-name">{{locationName}}</p>
+						<p class="location-city">{{city}}</p>
+					</div>
+				</a>
+			</li>
+		{{/each}}
+
+	<a href="" class="event-button">Bekijk alle evenementen</a>
+</script>
 
 <?php get_footer(); ?>
