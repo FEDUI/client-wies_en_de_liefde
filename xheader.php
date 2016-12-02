@@ -6,5 +6,8 @@
 </head>
 <body>
 	<header>
-		<h1>HEADER</h1>
+		<?php Template::Render('main-nav'); ?>
+		<div class="menu-indicator-bar">
+
+		</div>
 	</header>

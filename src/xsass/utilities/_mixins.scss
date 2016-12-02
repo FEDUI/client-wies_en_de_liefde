@@ -1,0 +1,66 @@
+// Outline everything
+@mixin outline($color: lime) {
+  * {
+    outline: 1px solid $color;
+  }
+}
+
+// Set Font size
+@mixin set($map, $property: "font-size") {
+  @each $item, $i in $map {
+    & {
+      @if( $item == "xs") {
+        #{$property}: $i;
+      }
+      @if( $item == "sm") {
+        @include breakpoint($set-sm) {
+          #{$property}: $i;
+        }
+      }
+      @if( $item == "md") {
+        @include breakpoint($set-md) {
+          #{$property}: $i;
+        }
+      }
+      @if( $item == "lg") {
+        @include breakpoint($set-lg) {
+          #{$property}: $i;
+        }
+      }
+    }
+  }
+}
+
+// Set breakpoint to content
+@mixin container($include-padding: "true") {
+  max-width: $container;
+  margin: 0 auto;
+
+  padding-left: $padding-md;
+  padding-right: $padding-md;
+  box-sizing: border-box;
+
+  @if ($include-padding == "false") {
+
+    @include breakpoint($bp-container) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
+
+// Automatically including focus styles with hover
+@mixin hocus {
+    &:hover,
+    &:focus {
+        @content;
+    }
+}
+
+// breakpoint instead of media to insure: min-width
+@mixin breakpoint($width) {
+  @media(min-width: $width) {
+    @content;
+  }
+
+}

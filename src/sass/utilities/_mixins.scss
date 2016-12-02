@@ -1,46 +1,42 @@
-// Outline everything
-@mixin outline($color: lime) {
+// Style a hover and a focus
+@mixin hocus {
+  &:hover, &:focus {
+    @content;
+  }
+}
+
+// Outline all elements
+@mixin outline {
   * {
-    outline: 1px solid $color;
+    outline: 1px solid lime;
   }
 }
 
-// Set Font size
-@mixin set($map, $property: "font-size") {
-  @each $item, $i in $map {
-    & {
-      @if( $item == "xs") {
-        #{$property}: $i;
-      }
-      @if( $item == "sm") {
-        @include breakpoint($set-sm) {
-          #{$property}: $i;
-        }
-      }
-      @if( $item == "md") {
-        @include breakpoint($set-md) {
-          #{$property}: $i;
-        }
-      }
-      @if( $item == "lg") {
-        @include breakpoint($set-lg) {
-          #{$property}: $i;
-        }
-      }
-    }
-  }
+// Min width breakpoint
+@mixin min-width($width) {
+  @media(min-width: $width) { @content; }
 }
 
-// Set breakpoint to content
+// Reset the default values of a link
+@mixin reset-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+// Add a max width to an element
+// Take care of paddings on small screens
+// Center this element on larger screens
+
+// You will need $container, $bp-container and $gutter variables
 @mixin container($include-padding: "true") {
   max-width: $container;
   margin: 0 auto;
 
-  padding-left: $padding-md;
-  padding-right: $padding-md;
-  box-sizing: border-box;
-
-  @if ($include-padding == "false") {
+  @if ($include-padding == "true") {
+    padding-left: $gutter;
+    padding-right: $gutter;
+    box-sizing: border-box;
 
     @include breakpoint($bp-container) {
       padding-left: 0;
@@ -49,18 +45,47 @@
   }
 }
 
-// Automatically including focus styles with hover
-@mixin hocus {
-    &:hover,
-    &:focus {
-        @content;
+//  Cross-resolution style setting
+@mixin adjust($map, $property: "font-size") {
+  @each $item, $i in $map {
+    & {
+      @if( $item == "xs") {
+        #{$property}: $i;
+      }
+      @if( $item == "sm") {
+        @include breakpoint($adjust-sm) {
+          #{$property}: $i;
+        }
+      }
+      @if( $item == "md") {
+        @include breakpoint($adjust-md) {
+          #{$property}: $i;
+        }
+      }
+      @if( $item == "lg") {
+        @include breakpoint($adjust-lg) {
+          #{$property}: $i;
+        }
+      }
     }
+  }
 }
 
-// breakpoint instead of media to insure: min-width
-@mixin breakpoint($width) {
-  @media(min-width: $width) {
-    @content;
-  }
+// Create a grid and adjust the values to adjust the amount of items and breakpoints of the grid
+@mixin grid-try($class, $map) {
+  margin: 0 -#{$gutter};
 
+  #{$class} {
+    width: calc(100% - #{$double-gutter});
+    display: inline-block;
+    margin: 1rem $gutter;
+
+    vertical-align: top;
+
+    @each $item, $i in $map {
+      @include breakpoint(#{$item}) {
+        width: calc((98% / #{$i}) - #{$double-gutter});
+      }
+    }
+  }
 }
