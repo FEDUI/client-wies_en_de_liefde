@@ -38,7 +38,7 @@
     padding-right: $gutter;
     box-sizing: border-box;
 
-    @include breakpoint($bp-container) {
+    @include min-width($bp-container) {
       padding-left: 0;
       padding-right: 0;
     }
@@ -53,17 +53,17 @@
         #{$property}: $i;
       }
       @if( $item == "sm") {
-        @include breakpoint($adjust-sm) {
+        @include min-width($adjust-sm) {
           #{$property}: $i;
         }
       }
       @if( $item == "md") {
-        @include breakpoint($adjust-md) {
+        @include min-width($adjust-md) {
           #{$property}: $i;
         }
       }
       @if( $item == "lg") {
-        @include breakpoint($adjust-lg) {
+        @include min-width($adjust-lg) {
           #{$property}: $i;
         }
       }
@@ -72,20 +72,20 @@
 }
 
 // Create a grid and adjust the values to adjust the amount of items and breakpoints of the grid
-@mixin grid-try($class, $map) {
+@mixin grid($el, $bp-half: 600px, $bp-third: 900px) {
   margin: 0 -#{$gutter};
 
-  #{$class} {
+  #{$el} {
     width: calc(100% - #{$double-gutter});
     display: inline-block;
     margin: 1rem $gutter;
-
     vertical-align: top;
 
-    @each $item, $i in $map {
-      @include breakpoint(#{$item}) {
-        width: calc((98% / #{$i}) - #{$double-gutter});
-      }
+    @include min-width($bp-half) {
+      width: calc(49% - #{$double-gutter});
+    }
+    @include min-width($bp-third) {
+      width: calc(33% - #{$double-gutter});
     }
   }
 }

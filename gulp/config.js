@@ -29,6 +29,12 @@ var config = {
         destFile: 'main.min.js'
     },
 
+    fonts: {
+        watch: ['src/fonts/**/*'],
+        src: ['./src/fonts/**/*'],
+        folder: 'fonts/'
+    },
+
     error: function(error) {
 
         $.notify.onError({

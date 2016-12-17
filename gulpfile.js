@@ -60,6 +60,13 @@ gulp.task('browserify', function() {
 
 });
 
+
+// fonts
+gulp.task('fonts', function() {
+	return gulp.src(config.fonts.src)
+		.pipe(gulp.dest(config.base + config.fonts.folder));
+});
+
 // Static server
 gulp.task('browser-sync', function() {
 
@@ -86,6 +93,7 @@ gulp.task('server', function() {
 	return runSequence(
 		['sass'],
 		'img',
+		'fonts',
 		'browserify',
 		'browser-sync',
 		'watch'

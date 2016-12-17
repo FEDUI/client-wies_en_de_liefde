@@ -1,0 +1,51 @@
+// makes the content not flow over the header
+$header-margin: 1rem;
+
+body {
+  margin-left: $header-margin;
+}
+
+.main-header {
+  position: fixed;
+  bottom: 0; left: 0;
+
+  width: 100%;
+  background: green;
+
+  &--container {
+    position: fixed;
+    top: 0; left: 0;
+
+    transform: translateX(calc(-100% + #{$header-margin}));
+    transition: .3s transform;
+  }
+
+  &--title {
+    display: inline-block;
+    font-size: 1rem;
+
+    z-index: 1;
+  }
+
+  &--img {
+
+  }
+  &--img-container {
+
+    display: inline-block;
+    height: calc(100% - 4.1rem); height: calc(100vh - 4.1rem);
+
+    width: 100%; width: 100vw;
+    // width: $header-margin;
+    background-color: tomato;
+  }
+  &--button   {
+    background-color: tomato;
+    display: inline-block;
+    z-index: 1;
+  }
+  &--nav {
+    position: absolute;
+    top: 0; left: 0;
+  }
+}

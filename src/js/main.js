@@ -1,4 +1,8 @@
-var facebook = require('./modules/facebook');
+// var facebook = require('./modules/facebook');
 
 // instagram.connect();
-facebook.getAcces();
+// facebook.getAcces();
+
+window.addEventListener('DOMContentLoaded', function() {
+  require('./modules/nav');
+}, false);
