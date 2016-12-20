@@ -32,6 +32,10 @@ $grid: (
   // Layout
   $bp-container: $container + $double-gutter; // 1564px
 
+  // Menu
+  $bp-full-menu: 800px;
+  $bp-full-size-menu: 1200px;
+
   // The breakpoint for the adjust mixin
   $adjust-xs: 500px;
   $adjust-sm: 800px;

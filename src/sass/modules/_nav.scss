@@ -1,3 +1,30 @@
-.nav {
-  
+nav.nav {
+
+
+
+
+  ul {
+    width: 28.8rem; height: 100%;
+    // shape-outside: circle(50%);
+    float: right;
+
+    &:before {
+      content: "";
+      // display: inline-block;
+      float: left;
+      width: 23rem; height: 100vh;
+
+      shape-outside: polygon(0% 0%, 33% 0%, 48% 7%, 73% 20%, 93% 45%, 97% 57%, 55% 75%, 62% 90%, 0% 100%);
+    }
+  }
+
+  li {
+    margin-top: 5rem;
+    list-style: none;
+
+    a {
+      color: $black;
+      text-decoration: none;
+    }
+  }
 }
