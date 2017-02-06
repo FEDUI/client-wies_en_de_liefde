@@ -4,5 +4,6 @@
 // facebook.getAcces();
 
 window.addEventListener('DOMContentLoaded', function() {
-  require('./modules/nav');
+  const menu = require('./modules/nav');
+  menu.set();
 }, false);

@@ -1,7 +1,17 @@
 .menu-toggle {
-  border: 0px solid $white;
+  position: fixed;
+  top: 1rem; right: 1rem;
+  z-index: 99;
+  padding: .3rem;
 
-  font-size: 1.3rem;
-  padding: .3rem .7rem;
-  margin: 1rem;
+  background-color: tomato;
+  border: 0;
+
+  @include min-width($bp-full-menu) {
+    display: none;
+  }
+
+  &--name {
+    display: block;
+  }
 }

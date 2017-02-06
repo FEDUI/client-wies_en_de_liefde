@@ -1,30 +1,29 @@
-nav.nav {
+.nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; width: 100vw;
+  height: 100%; height: 100vh;
 
+  margin: 0; padding: 0;
 
+  transform: translateX(-100vw);
+  transition: .3s transform;
 
+  background-color: #282828;
+  color: #F2F1F2;
 
-  ul {
-    width: 28.8rem; height: 100%;
-    // shape-outside: circle(50%);
-    float: right;
+  // center align the menu items
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    &:before {
-      content: "";
-      // display: inline-block;
-      float: left;
-      width: 23rem; height: 100vh;
-
-      shape-outside: polygon(0% 0%, 33% 0%, 48% 7%, 73% 20%, 93% 45%, 97% 57%, 55% 75%, 62% 90%, 0% 100%);
-    }
-  }
-
-  li {
-    margin-top: 5rem;
-    list-style: none;
-
-    a {
-      color: $black;
-      text-decoration: none;
-    }
+  @include min-width($bp-full-menu) {
+    position: absolute;
+    width: 100%;
+    height: 100%; height: 100vh;
+    transform: none;
+    display: block;
+    background-color: transparent;
   }
 }

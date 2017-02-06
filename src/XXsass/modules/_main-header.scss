@@ -1,0 +1,94 @@
+// makes the content not flow over the header
+$header-margin: 1rem;
+$header-margin-m: 15rem;
+$header-margin-l: 31.25rem;
+
+main, footer {
+  margin-left: $header-margin;
+  @include min-width($bp-full-menu) {
+    margin-left: $header-margin-m;
+  }
+  @include min-width($bp-full-size-menu) {
+    margin-left: $header-margin-l;
+  }
+}
+
+.main-header {
+  position: fixed;
+  bottom: 0; left: 0;
+
+  width: 100%;
+  background: green;
+
+  @include min-width($bp-full-menu) {
+    top: 0;
+    width: auto;
+  }
+
+  &--container {
+    position: fixed;
+    top: 0; left: 0;
+
+    transform: translateX(calc(-100% + #{$header-margin}));
+    transition: .3s transform;
+
+    @include min-width($bp-full-menu) {
+      position: relative;
+      top: auto; left: auto;
+      transform: translateX(0);
+    }
+  }
+
+  &--title {
+    display: inline-block;
+    font-size: 1rem;
+
+    z-index: 1;
+
+    @include min-width($bp-full-menu) {
+      position: absolute;;
+      bottom: 1rem; left: 1rem;
+    }
+  }
+
+  &--img {
+    height: 100%;
+  }
+  &--img-container {
+    display: inline-block;
+    height: calc(100% - 4.1rem); height: calc(100vh - 4.1rem);
+    width: 100%; width: 100vw;
+    overflow: hidden;
+
+    background-color: tomato;
+    // clip-path: url("#shape-logo");
+
+    @include min-width($bp-full-menu) {
+      height: 100%; height: 100vw;
+      width: $header-margin-m;
+    }
+    @include min-width($bp-full-size-menu) {
+      width: $header-margin-l;
+    }
+
+  }
+  &--button   {
+    background-color: tomato;
+    display: inline-block;
+    z-index: 1;
+
+    @include min-width($bp-full-menu) {
+      display: none;
+    }
+  }
+  &--nav {
+    position: absolute;
+    top: 0; left: 0;
+  }
+}
+
+
+#shape-logo {
+  height: 100%;
+  width: 50rem;
+}
