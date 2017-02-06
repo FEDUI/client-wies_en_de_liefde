@@ -2,3 +2,28 @@ body, html {
   padding: 0;
   margin: 0;
 }
+
+body {
+  font-family: $montserrat;
+  line-height: 1.5;
+}
+
+main, footer {
+  height: 100vh;
+  @include min-width($bp-full-menu) {
+    margin-left: $header-margin-m;
+  }
+  @include min-width($bp-full-size-menu) {
+    margin-left: $header-margin-l;
+  }
+}
+
+
+
+// For development purposes
+main {
+  background: tomato;
+}
+footer {
+  background: yellow;
+}

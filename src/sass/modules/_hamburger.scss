@@ -1,0 +1,19 @@
+.hamburger {
+
+  &-top {
+    // transform="translate(16.000000, 12.500000) rotate(-315.000000) translate(-16.000000, -12.500000) " x="0" y="11" width="32" height="3"
+    fill: #17002A;
+  }
+  &-middle {
+    fill: #17002A;
+  }
+  &-bottom {
+    fill: #17002A;
+  }
+}
+
+
+
+// <rect class="rectangle-top" ></rect>
+// <rect class="rectangle-middle" x="0" y="11" width="32" height="3"></rect>
+// <rect class="rectangle-bottom" transform="translate(16.000000, 12.500000) rotate(-45.000000) translate(-16.000000, -12.500000) " x="0" y="11" width="32" height="3"></rect>

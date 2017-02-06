@@ -1,0 +1,43 @@
+// Colors
+$black:   #000;
+$white:   #fff;
+$gray:    #b9b3bf;
+
+$text:    $black;
+
+// Fonts-sizes
+$base-font-size: (
+  xs: 1rem,
+  sm: 1.1rem,
+  md: 1.125rem,
+  lg: 1.125rem   // 18px
+);
+
+// Fonts
+$montserrat: "Montserrat Regular", sans-serif;
+$montserrat-bold: "Montserrat Bold", sans-serif;
+
+// Layout
+$container:      75rem; // 1200px
+$gutter:         1.28rem; // 20px
+$double-gutter:  $gutter * 2; // 40px
+
+// Grids
+$grid: (
+  540px: 2,
+  900px: 4
+);
+
+// Global used breakpoints
+  // Layout
+  $bp-container: $container + $double-gutter; // 1564px
+
+  // Menu
+  $bp-full-menu: 800px;
+  $bp-full-size-menu: 1200px;
+
+  // The breakpoint for the adjust mixin
+  $adjust-xs: 500px;
+  $adjust-sm: 800px;
+  $adjust-md: 1000px;
+  $adjust-lg: 1300px;

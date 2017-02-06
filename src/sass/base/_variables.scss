@@ -1,4 +1,8 @@
-// Colors
+// Project Colors
+$brand-primary: tomato;
+
+
+// Base Colors
 $black:   #000;
 $white:   #fff;
 $gray:    #b9b3bf;
@@ -14,8 +18,8 @@ $base-font-size: (
 );
 
 // Fonts
-$serif: "Helvetica", serif;
-$sans-serif: "Times", sans-serif;
+$montserrat: "Montserrat Regular", sans-serif;
+$montserrat-bold: "Montserrat Bold", sans-serif;
 
 // Layout
 $container:      75rem; // 1200px
@@ -28,9 +32,18 @@ $grid: (
   900px: 4
 );
 
+// Global used measurements
+$header-margin: 1rem;
+$header-margin-m: 15rem;
+$header-margin-l: 31.25rem;
+
 // Global used breakpoints
   // Layout
   $bp-container: $container + $double-gutter; // 1564px
+
+  // Menu
+  $bp-full-menu: 800px;
+  $bp-full-size-menu: 1200px;
 
   // The breakpoint for the adjust mixin
   $adjust-xs: 500px;
