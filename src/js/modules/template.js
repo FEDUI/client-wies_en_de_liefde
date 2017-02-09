@@ -3,7 +3,7 @@
 // Or make this with placeholders, that's better!
 
 var template = {};
-var Handlebars = require('../lib/handlebars');
+var Handlebars = require('../lib/handlebars.min.js');
 Handlebars.registerHelper('ifCond', function(v1, v2, options) {
   if (v1 === v2) {
     return options.fn(this);

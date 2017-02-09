@@ -131,60 +131,56 @@ filter.posts = function(data, postAmount) {
   var postsData = _data.data[0];
   var post = {};
 
-  if ( postsData.type === 'photo' ) {
-    post.photo = 'photo';
+  // cover_photo
+  // share
 
-    if ( postsData.description ) {
-      post.text = postsData.description;
+  if (postsData.type) {
+    post.type = postsData.type;
+
+    switch (postsData.type) {
+      case 'share':
+
+
+      break;
+
+      case 'photo':
+      case 'cover_photo':
+      case 'profile_media':
+        post.type = 'photo';
+        if ( postsData.description ) { post.text = postsData.description; }
+        if ( postsData.media ) { post.image = [postsData.media.image.src]; }
+      break;
+
+      case 'event':
+        if ( postsData.media ) { post.image = [postsData.media.image.src]; }
+        if ( postsData.title ) { post.text = postsData.title; }
+      break;
+
+      case 'album':
+         if (postsData.subattachments) {
+           post.image = [];
+           postsData.subattachments.data.forEach(function(photo) {
+             post.image.push(photo.media.image.src);
+           });
+         }
+      break;
+
+      case 'video_autoplay':
+      case 'video_share_youtube':
+      // @TODO: Get the url to the video!
+        post.type = 'video';
+        console.log('video: ', postsData);
+        if ( postsData.target.url ) { post.image = [postsData.media.image.src]; }
+        if (postsData.title) {post.text = postsData.title; }
+      break;
     }
 
-    if ( postsData.media ) {
-      post.image = [postsData.media.image.src];
+    filteredPosts.push(post);
+    counter ++;
+
+    if ( counter >= postAmount ) {
+      template.render(filteredPosts, '#news-template', '.news-overview');
     }
-  }
-
-  if ( postsData.type === 'event' ) {
-    post.event = 'event';
-
-    if ( postsData.media ) {
-      post.image = [postsData.media.image.src];
-    }
-
-    post.text = postsData.title;
-  }
-
-  if ( postsData.type === 'album' ) {
-    post.album = 'album';
-
-    if (postsData.subattachments) {
-
-      post.image = [];
-
-      postsData.subattachments.data.forEach(function(photo) {
-        post.image.push(photo.media.image.src);
-      });
-    }
-  }
-
-  if ( postsData.type === 'video_autoplay' || postsData.type === 'video_share_youtube' ) {
-    if ( postsData.target.url ) {
-      post.image = [postsData.media.image.src];
-    }
-
-    if (postsData.title) {
-      post.text = postsData.title;
-    }
-  }
-
-  if ( postsData.target ) {
-    post.url = postsData.target.url;
-  }
-
-  filteredPosts.push(post);
-  counter ++;
-
-  if ( counter >= postAmount ) {
-    template.render(filteredPosts, '#news-template', '.news-overview');
   }
 };
 
