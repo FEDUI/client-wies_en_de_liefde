@@ -22,9 +22,9 @@ $montserrat: "Montserrat Regular", sans-serif;
 $montserrat-bold: "Montserrat Bold", sans-serif;
 
 // Layout
-$container:      75rem; // 1200px
-$gutter:         1.28rem; // 20px
-$double-gutter:  $gutter * 2; // 40px
+$container:      45rem;
+$gutter:         1.28rem;
+$double-gutter:  $gutter * 2;
 
 // Grids
 $grid: (
@@ -39,7 +39,7 @@ $header-margin-l: 31.25rem;
 
 // Global used breakpoints
   // Layout
-  $bp-container: $container + $double-gutter; // 1564px
+  $bp-container: $container + $double-gutter;
 
   // Menu
   $bp-full-menu: 800px;

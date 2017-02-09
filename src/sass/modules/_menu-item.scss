@@ -39,3 +39,14 @@
     }
   }
 }
+
+.current_page_item {
+  a {
+    color: red;
+    
+    &:after {
+      transform: scaleX(1);
+    }
+  }
+
+}

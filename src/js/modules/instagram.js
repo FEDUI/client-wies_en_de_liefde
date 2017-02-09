@@ -1,4 +1,15 @@
+// Require Handlebars as template engine
+var Handlebars = require('../lib/handlebars.min.js');
+Handlebars.registerHelper('ifCond', function(v1, v2, options) {
+  if (v1 === v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
+
+// Declare instagram
 var instagram = {};
+// Set all the nessasary keys
 var keys = {
     clientId: 'fd3e2ea7da514b7ea84da4d6ad757133',
     accesToken: '3435776989.83b15f9.ab41e9184a4d4a0b86e22f3480afbd07',
@@ -7,17 +18,18 @@ var keys = {
     // tags: "" // if needed
 };
 
+// The function to call
 instagram.connect = function() {
+  // create the url
   var url = instagram.createUrl();
-  console.log(url);
+  // make the api call
   instagram.APICall(url, instagram.handleData);
-
 };
 
 instagram.createUrl = function() {
-
+  // create the url as a parameter for the php script
   var urlParts = {
-    phpFile: '../../../get.php',
+    phpFile: '/get.php',
     phpQuery: '?url=',
     base: 'https://api.instagram.com/v1/',
     sort: 'users/',
@@ -26,14 +38,12 @@ instagram.createUrl = function() {
     acces: '?access_token=' + keys.accesToken
   };
 
-  return urlParts.phpQuery + urlParts.base + urlParts.sort + urlParts.userId + urlParts.type + urlParts.acces;
-
+  return urlParts.phpFile + urlParts.phpQuery + urlParts.base + urlParts.sort + urlParts.userId + urlParts.type + urlParts.acces;
 };
 
 instagram.APICall = function(url, callback) {
-
 var _url = url;
-
+// make the req
 var xhttp = new XMLHttpRequest();
   // If the xhttp req is loaded(done) and there is an response send the data to the callback function
   xhttp.onloadend = function() {
@@ -49,9 +59,7 @@ var xhttp = new XMLHttpRequest();
 
 };
 
-
 instagram.handleData = function(data) {
-  console.log(data);
 
   var _data = JSON.parse(data);
   var photos = _data.data;
@@ -72,15 +80,25 @@ instagram.filter = function(item) {
 
   var _item = item;
 
-  var photo = {
-    link: _item.link,
-    preview: _item.images.low_resolution.url,
-    large: _item.images.standard_resolution.url,
-    caption: _item.caption.text
-  };
-
-  return photo;
-
+  if ( _item.videos ) {
+    console.log(_item);
+    return {
+      link: _item.link,
+      type: 'video',
+      src: _item.videos.standard_resolution.url,
+      poster: _item.images.standard_resolution.url,
+      caption: _item.caption.text,
+      orientation: _item.videos.standard_resolution.height > _item.videos.standard_resolution.width ? 'vertical' : 'horizontal'
+    };
+  } else {
+    return {
+      link: _item.link,
+      preview: _item.images.low_resolution.url,
+      large: _item.images.standard_resolution.url,
+      caption: _item.caption.text,
+      type: 'photo',
+    };
+  }
 };
 
 // instagram.handleVideo = function(video) {
