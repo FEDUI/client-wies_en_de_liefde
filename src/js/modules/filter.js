@@ -139,24 +139,23 @@ filter.posts = function(data, postAmount) {
 
     switch (postsData.type) {
       case 'share':
-
-
-      break;
-
       case 'photo':
       case 'cover_photo':
       case 'profile_media':
         post.type = 'photo';
+        if ( postsData.url ) { post.url = postsData.url; }
         if ( postsData.description ) { post.text = postsData.description; }
         if ( postsData.media ) { post.image = [postsData.media.image.src]; }
       break;
 
       case 'event':
+      if ( postsData.url ) { post.url = postsData.url; }
         if ( postsData.media ) { post.image = [postsData.media.image.src]; }
         if ( postsData.title ) { post.text = postsData.title; }
       break;
 
       case 'album':
+      if ( postsData.url ) { post.url = postsData.url; }
          if (postsData.subattachments) {
            post.image = [];
            postsData.subattachments.data.forEach(function(photo) {
@@ -169,7 +168,7 @@ filter.posts = function(data, postAmount) {
       case 'video_share_youtube':
       // @TODO: Get the url to the video!
         post.type = 'video';
-        console.log('video: ', postsData);
+        if ( postsData.url ) { post.url = postsData.url; }
         if ( postsData.target.url ) { post.image = [postsData.media.image.src]; }
         if (postsData.title) {post.text = postsData.title; }
       break;

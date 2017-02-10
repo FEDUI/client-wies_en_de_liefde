@@ -15,7 +15,7 @@
 
     </video>
 
-    
+
 		<h2>Laatste nieuws</h2>
 		<ul class="news-overview">
 		</ul>
@@ -28,8 +28,7 @@
   <script id="news-template" type="text/x-handlebars-template">
   	{{#each this}}
   		<li class="news-overview--item news-item news-item--{{this.type}}">
-        <p>{{this.type}}</p>
-  			{{#if this.url}}<a href="{{url}}" class="news-item--link">{{/if}}
+  			{{#if this.url}}<a href="{{url}}" class="news-item--link" target="_blank">{{/if}}
   				{{#if this.event}}<h2 class="news-item--title">Optreden</h2>{{/if}}
   				{{#if this.image}}
   					<div class="news-item--img-container">
