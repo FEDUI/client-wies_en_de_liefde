@@ -9,7 +9,6 @@
     text-align: left;
     font-size: 1rem;
     margin: 3rem 0;
-    margin: 11vh 0;
     color: $black;
   }
 
@@ -29,7 +28,7 @@
       transition: .3s transform;
       transform-origin: 0%;
 
-      background-color: rgba(pink, .6);
+      background-color: rgba($brand-primary, .6);
     }
 
     &:hover, &:focus, &:active {
@@ -42,8 +41,8 @@
 
 .current_page_item {
   a {
-    color: red;
-    
+    color: $brand-primary;
+
     &:after {
       transform: scaleX(1);
     }

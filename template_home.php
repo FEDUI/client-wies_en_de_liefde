@@ -7,7 +7,7 @@
 <?php get_header(); ?>
 
 <main class="home">
-	<h1>HOME</h1>
+	<h1><?php echo get_the_title(); ?></h1>
 
 	<div class="test">
 		<p>

@@ -11,7 +11,7 @@ Template Name: photowall
 
 
 <main>
-  <h1>Photo</h1>
+  <h1><?php echo get_the_title(); ?></h1>
   <section class="photowall">
     <ul>
       <li></li>

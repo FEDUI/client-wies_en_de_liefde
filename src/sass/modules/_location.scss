@@ -1,0 +1,19 @@
+.location {
+
+  &--name {
+    margin: 0;
+
+    @include min-width($align-calendar-content) {
+      width: 18.25rem;
+      display: inline-block;
+    }
+  }
+  &--city {
+    margin: 0;
+    font-family: $montserrat-bold;
+
+    @include min-width($align-calendar-content) {
+      display: inline-block;
+    }
+  }
+}
