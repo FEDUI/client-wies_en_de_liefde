@@ -84,6 +84,12 @@
 
 
 
+	// Make every page have an uitgelichte afbeelding
+	add_theme_support( 'post-thumbnails' );
+
+
+
+
 
 
 

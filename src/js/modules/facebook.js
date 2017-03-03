@@ -4,6 +4,7 @@ var keys = require('./keys');
 var filter = require('./filter');
 
 var facebook = {};
+var eventLink = {};
 
 facebook.getAcces = function() {
 
@@ -62,9 +63,16 @@ facebook.getEntirePost = function(data, accessToken) {
   var posts = _data.posts.data;
   var postAmount = posts.length;
 
+
+  console.log('posts: ',  posts);
+
   posts.forEach(function(post) {
 
+    var postDate = post.created_time;
     var postId = post.id;
+
+    eventLink[postId] = postDate;
+
     facebook.getPostDetails(postId, accessToken, postAmount);
 
   });
@@ -90,20 +98,22 @@ facebook.getEntirePost = function(data, accessToken) {
 
 facebook.APICall = function(url, callback, token) {
 
-    var _url = url;
-    var xhttp = new XMLHttpRequest();
-    xhttp.onloadend = function() {
-        if (xhttp.response) {
-          if (token) {
-            callback(xhttp.response, token);
-          } else {
-            callback(xhttp.response);
-          }
+  var _url = url;
+  var xhttp = new XMLHttpRequest();
+  xhttp.onloadend = function() {
+      if (xhttp.response) {
+        if (token) {
+          callback(xhttp.response, token);
+        } else {
+          callback(xhttp.response);
         }
-    };
-    xhttp.open('GET', _url, true);
-    xhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
-    xhttp.send();
+      }
+  };
+  xhttp.open('GET', _url, true);
+  xhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+  xhttp.send();
+
+  console.log(eventLink);
 
 };
 

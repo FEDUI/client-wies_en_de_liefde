@@ -1,0 +1,24 @@
+.affaire {
+  width: 100%;
+  display: inline-block;
+
+  vertical-align: top;
+
+  @include min-width(750px) {
+    width: 23%;
+  }
+
+  &--info {
+
+  }
+  &--role {
+    text-align: right;
+  }
+  &--img {
+    width: 100%;
+  }
+  &--img-container {
+    height: 16rem;
+    overflow: hidden;
+  }
+}

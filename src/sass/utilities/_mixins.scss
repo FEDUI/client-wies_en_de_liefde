@@ -31,7 +31,6 @@
 // You will need $container, $bp-container and $gutter variables
 @mixin container($include-padding: "true") {
   max-width: $container;
-  margin: 0 auto;
 
   @if ($include-padding == "true") {
     padding-left: $gutter;

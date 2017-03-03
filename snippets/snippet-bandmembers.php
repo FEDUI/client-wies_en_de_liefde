@@ -5,23 +5,31 @@ $counter = 0;
     // loop through the rows of data
     while ( have_rows('bandmember') ) : the_row();
 
-      if ($counter === 0) { $class = 'bandmember--first'; }
+      if ($counter === 0) {
+        $class = 'bandmember--first';
+      } else {
+        $class = '';
+      }
 
     ?>
-      <li class="<?php echo $class; ?>">
-        <h2 class="bandmember--name"><?php the_sub_field('name'); ?></h2>
-        <p class="bandmember--role"><?php the_sub_field('role'); ?></p>
-        <div class="bandmember--text"> <?php the_sub_field('about'); ?> </div>
-
+    <?php if ($counter === 1) { ?>
+      <h2>De liefdes</h2>
+    <?php } ?>
+      <article class="<?php echo $class; ?> bandmember">
         <?php
           $image = get_sub_field('image');
           if( !empty($image) ):
         ?>
           <div class="bandmember--img-container">
-            <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
+            <img class="bandmember--img" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
           </div>
         <?php endif; ?>
-      </li>
+        <div class="bandmember--info">
+          <h3 class="bandmember--name"><?php the_sub_field('name'); ?></h3>
+          <p class="bandmember--role"><?php the_sub_field('role'); ?></p>
+          <div class="bandmember--text"> <?php the_sub_field('about'); ?> </div>
+        </div>
+      </article>
 <?php
     $counter ++;
     endwhile;

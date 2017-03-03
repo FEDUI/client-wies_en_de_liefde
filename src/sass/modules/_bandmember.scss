@@ -1,0 +1,68 @@
+.bandmember {
+  width: 100%;
+  background-color: $white;
+
+  box-shadow: 2px 4px 4px rgba($black, .1);
+
+  @include min-width(1200px) {
+    width: 31%;
+    display: inline-block;
+    margin: 0 .5%;
+
+    vertical-align: top;
+  }
+
+  &:nth-of-type(3) {
+    margin-top: .7rem;
+  }
+  &:nth-of-type(4) {
+    margin-top: 1.4rem;
+  }
+
+  &--info {
+    padding: 1rem;
+  }
+
+  &--name {
+    margin: 0;
+    margin-bottom: .3rem;
+
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+  &--role {
+    text-align: right;
+  }
+  &--text {
+
+  }
+  &--img {
+    width: 100%;
+
+  }
+  &--img-container {
+
+  }
+}
+
+// The first bandmember
+.bandmember--first {
+  width: 100%;
+  margin-bottom: 3.875rem;
+
+  .bandmember {
+    &--img-container {
+      @include min-width(750px) {
+        width: calc(49% - 1rem);
+        display: inline-block;
+        margin-right: 1rem;
+
+        vertical-align: top;
+      }
+    }
+    &--info {
+      display: inline-block;
+      width: 50%;
+    }
+  }
+}

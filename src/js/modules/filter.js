@@ -131,11 +131,15 @@ filter.posts = function(data, postAmount) {
   var postsData = _data.data[0];
   var post = {};
 
+  console.log('filter: ', postsData);
+
   // cover_photo
   // share
 
   if (postsData.type) {
     post.type = postsData.type;
+
+    console.log(post);
 
     switch (postsData.type) {
       case 'share':
@@ -178,6 +182,8 @@ filter.posts = function(data, postAmount) {
     counter ++;
 
     if ( counter >= postAmount ) {
+
+      // reorder the posts to date!
       template.render(filteredPosts, '#news-template', '.news-overview');
     }
   }

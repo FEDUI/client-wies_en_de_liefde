@@ -1,0 +1,9 @@
+a {
+  color: $brand-primary;
+
+  transition: .2s color;
+
+  @include hocus {
+    color: lighten($brand-primary, 20%);
+  }
+}

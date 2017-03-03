@@ -10,14 +10,11 @@ Template Name: About
 <main>
   <h1><?php echo get_the_title(); ?></h1>
 
-  <section>
-    <ul class="bandmember">
-      <?php Template::Render('./snippets/snippet-bandmembers'); ?>
-    </ul>
+  <section class="bandmembers">
+    <?php Template::Render('./snippets/snippet-bandmembers'); ?>
 
-    <ul class="affaire">
-      <?php Template::Render('./snippets/snippet-affaires'); ?>
-    </ul>
+    <h2>De minnaars van Wies</h2>
+    <?php Template::Render('./snippets/snippet-affaires'); ?>
 </section>
 
 </main>

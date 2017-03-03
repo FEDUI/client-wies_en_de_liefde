@@ -13,4 +13,8 @@ window.addEventListener('DOMContentLoaded', function() {
   if ( photowall ) {
     instagram.connect();
   }
+
+  if (document.querySelector('.setlist--item')) {
+    require('./modules/setlist');
+  }
 }, false);
