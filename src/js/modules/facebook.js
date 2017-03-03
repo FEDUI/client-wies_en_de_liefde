@@ -63,9 +63,6 @@ facebook.getEntirePost = function(data, accessToken) {
   var posts = _data.posts.data;
   var postAmount = posts.length;
 
-
-  console.log('posts: ',  posts);
-
   posts.forEach(function(post) {
 
     var postDate = post.created_time;
@@ -112,9 +109,6 @@ facebook.APICall = function(url, callback, token) {
   xhttp.open('GET', _url, true);
   xhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
   xhttp.send();
-
-  console.log(eventLink);
-
 };
 
 

@@ -131,15 +131,11 @@ filter.posts = function(data, postAmount) {
   var postsData = _data.data[0];
   var post = {};
 
-  console.log('filter: ', postsData);
-
   // cover_photo
   // share
 
   if (postsData.type) {
     post.type = postsData.type;
-
-    console.log(post);
 
     switch (postsData.type) {
       case 'share':
@@ -162,8 +158,10 @@ filter.posts = function(data, postAmount) {
       if ( postsData.url ) { post.url = postsData.url; }
          if (postsData.subattachments) {
            post.image = [];
-           postsData.subattachments.data.forEach(function(photo) {
-             post.image.push(photo.media.image.src);
+           postsData.subattachments.data.forEach(function(photo, i) {
+             if (i <= 3) {
+               post.image.push(photo.media.image.src);
+             }
            });
          }
       break;
@@ -172,10 +170,17 @@ filter.posts = function(data, postAmount) {
       case 'video_share_youtube':
       // @TODO: Get the url to the video!
         post.type = 'video';
+        console.log(postsData);
         if ( postsData.url ) { post.url = postsData.url; }
         if ( postsData.target.url ) { post.image = [postsData.media.image.src]; }
-        if (postsData.title) {post.text = postsData.title; }
+        if (postsData.description) {post.text = postsData.title; }
       break;
+    }
+
+    if (post.text && post.text.length >= 60) {
+
+      post.text = post.text.substring(0, 60);
+      post.toLarge = true;
     }
 
     filteredPosts.push(post);

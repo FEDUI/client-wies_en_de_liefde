@@ -3,22 +3,41 @@
   top: 0; bottom: 0;
   right: 0; left: 0;
 
-  transform: translateX(-150%);
-  transform: translateX(-150vw);
-
-  padding: 6rem;
-
-  background-color: green;
+  padding: 1rem;
+  background-color: rgba(32, 32, 32, 1);
+  opacity: 1;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
+  transition: .3s opacity;
+
+
   iframe {
-    // height: 100%;
+
   }
+
+  &--remove {
+    position: absolute;
+    top: 1rem; right: 1rem;
+
+    color: white;
+    font-size: 2rem;
+
+    border: 0;
+    background-color: transparent;
+
+    @include min-width(800px) {
+      top: 3rem; right: 3rem;
+    }
+  }
+
 
   &--hide {
     z-index: -10;
+    opacity: 0;
+    transform: translateX(-150%);
+    transform: translateX(-150vw);
   }
 }

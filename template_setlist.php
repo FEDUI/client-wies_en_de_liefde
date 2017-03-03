@@ -27,6 +27,10 @@ Template Name: Setlist
 
             <?php if ( get_sub_field('link') ) { ?>
               <div class="frame frame--hide">
+                <button class="frame--remove">
+                  X
+                </button>
+                <!-- <embed type="video/quicktime" src="#" width="300" height="300"> -->
                 <?php the_sub_field('link'); ?>
               </div>
             <?php } ?>

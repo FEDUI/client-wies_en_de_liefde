@@ -2,7 +2,7 @@
   width: 100%;
   background-color: $white;
 
-  box-shadow: 2px 4px 4px rgba($black, .1);
+  @include card-shadow;
 
   @include min-width(1200px) {
     width: 31%;

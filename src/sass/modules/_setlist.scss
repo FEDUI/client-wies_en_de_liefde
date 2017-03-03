@@ -1,0 +1,28 @@
+.setlist {
+  &--item {
+    max-width: 10rem;
+
+    list-style-type: none;
+    margin: 2rem;
+  }
+
+  &--hover {
+    @include hocus {
+      cursor: pointer;
+    }
+    
+    .setlist--img {
+      transition: .3s transform;
+      transform-origin: center;
+
+      @include hocus {
+        transform: scale(1.1) rotate(-10deg);
+      }
+    }
+  }
+
+  &--img {
+    width: 100%;
+    display: block;
+  }
+}
