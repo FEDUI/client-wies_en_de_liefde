@@ -177,9 +177,9 @@ filter.posts = function(data, postAmount) {
       break;
     }
 
-    if (post.text && post.text.length >= 60) {
+    if (post.text && post.text.length >= 120) {
 
-      post.text = post.text.substring(0, 60);
+      post.text = post.text.substring(0, 120);
       post.toLarge = true;
     }
 

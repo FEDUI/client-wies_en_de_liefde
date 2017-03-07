@@ -17,4 +17,5 @@ window.addEventListener('DOMContentLoaded', function() {
   if (document.querySelector('.setlist--item')) {
     require('./modules/setlist');
   }
+
 }, false);

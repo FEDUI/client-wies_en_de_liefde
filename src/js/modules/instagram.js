@@ -68,8 +68,10 @@ instagram.handleData = function(data) {
   photos.forEach(function(photo) {
 
     var filteredPhoto = instagram.filter(photo);
-    filteredPhotos.push(filteredPhoto);
-
+    // Filter out the Photo's only!
+    if (filteredPhoto.type === 'photo') {
+      filteredPhotos.push(filteredPhoto);
+    }
   });
 
   instagram.render(filteredPhotos);
@@ -81,7 +83,6 @@ instagram.filter = function(item) {
   var _item = item;
 
   if ( _item.videos ) {
-    console.log(_item);
     return {
       link: _item.link,
       type: 'video',
@@ -121,6 +122,17 @@ instagram.render = function(data) {
 	var html = template(_data);
 	document.querySelector('.pictures').innerHTML = html;
 
+  instagram.rotateImages();
+
+};
+
+instagram.rotateImages = function() {
+  var pictures = document.querySelectorAll('.pictures--item'); // get all pictures
+  for (var i = 0; i < pictures.length; i++) {
+    var picture = pictures[i];
+    var random = Math.floor((Math.random() * 20) + -10); // get a random number between -10 and 10
+    picture.style.transform = 'rotate(' + random + 'deg)'; // set this number as an transform rotate value
+  }
 };
 
 module.exports = instagram;

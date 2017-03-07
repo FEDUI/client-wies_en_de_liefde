@@ -13,32 +13,27 @@ Template Name: photowall
 <main>
   <h1><?php echo get_the_title(); ?></h1>
   <section class="photowall">
-    <ul>
-      <li></li>
-    </ul>
   </section>
 
   <section class="pictures">
-      <p>Images are loading</p>
-      <div>Spinner</div>
+      <div class="spinner">
+        <img src="" alt="">
+      </div>
   </section>
 
   <script id="template-instagram" type="text/x-handlebars-template">
 
-  	<ul class="pictures-list">
+  	<ul class="pictures--list">
   		{{#each this}}
-  			<li class="pictures-list--item">
+  			<li class="pictures--item">
           {{#ifCond this.type "photo"}}
-            <a class="photo" href="{{this.link}}" target="_blank">
-              <figure>
-                  <img src="{{this.preview}}" alt="" />
-                  <figcaption>{{this.caption}}</figcaption>
-              </figure>
+            <a class="insta" href="{{this.link}}" target="_blank">
+              <img class="insta--img" src="{{this.preview}}" alt="" />
             </a>
           {{else}}
-            <div class="video {{this.orientation}}">
-              <video src="{{this.src}}" controls="true"></video>
-              <a href="{{this.link}}">{{this.caption}}</a>
+            <div class="insta--video--container {{this.orientation}}">
+              <video class="insta--video" src="{{this.src}}" controls="true"></video>
+              <!-- <a href="{{this.link}}">{{this.caption}}</a> -->
             </div>
           {{/ifCond}}
   			</li>

@@ -97,6 +97,10 @@
   }
 }
 
+// Make the box shadow on a card item
 @mixin card-shadow {
   box-shadow: 2px 4px 4px rgba($black, .1);
+}
+@mixin card-padding {
+  padding: .5rem .5rem 2.6rem .5rem;
 }
