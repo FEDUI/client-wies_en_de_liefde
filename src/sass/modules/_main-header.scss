@@ -6,6 +6,8 @@
     left: 0;
     height: 100%; height: 100vh;
     width: $header-margin-m;
+    
+    overflow: hidden;
   }
   @include min-width($bp-full-size-menu) {
     width: $header-margin-l;

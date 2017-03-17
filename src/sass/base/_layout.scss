@@ -26,6 +26,10 @@ main {
   padding: 1rem 1.5rem;
   min-height: 100%; min-height: 100vh;
   // border: 1px solid black;
+
+  @include min-width(800px) {
+    padding: 8rem 1.5rem;
+  }
 }
 
 main, footer {

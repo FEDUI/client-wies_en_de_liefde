@@ -11,14 +11,8 @@ Template Name: photowall
 
 
 <main>
-  <h1><?php echo get_the_title(); ?></h1>
-  <section class="photowall">
-  </section>
-
   <section class="pictures">
-      <div class="spinner">
-        <img src="" alt="">
-      </div>
+      <?php Template::Render('./snippets/spinner'); ?>
   </section>
 
   <script id="template-instagram" type="text/x-handlebars-template">

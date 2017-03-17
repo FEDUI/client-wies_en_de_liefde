@@ -27,7 +27,8 @@ $counter = 0;
         <div class="bandmember--info">
           <h3 class="bandmember--name"><?php the_sub_field('name'); ?></h3>
           <p class="bandmember--role"><?php the_sub_field('role'); ?></p>
-          <div class="bandmember--text"> <?php the_sub_field('about', 'TRUE'); ?> </div>
+          <?php  $text = get_sub_field('about'); ?>
+          <div class="bandmember--text"> <?php echo apply_filters('the_excerpt', $text); ?> </div>
         </div>
       </article>
 <?php

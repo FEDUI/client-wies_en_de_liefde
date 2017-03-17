@@ -8,7 +8,7 @@ Template Name: About
 <?php get_header(); ?>
 
 <main>
-  <h1><?php echo get_the_title(); ?></h1>
+  <!-- <h1><?php echo get_the_title(); ?></h1> -->
 
   <section class="bandmembers">
     <?php Template::Render('./snippets/snippet-bandmembers'); ?>

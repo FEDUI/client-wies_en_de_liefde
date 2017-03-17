@@ -8,14 +8,16 @@ window.addEventListener('DOMContentLoaded', function() {
   const menu = require('./modules/nav');
   menu.set();
 
-
-  const photowall = document.querySelector('.photowall');
-  if ( photowall ) {
+  if ( document.querySelector('.pictures') ) {
     instagram.connect();
   }
 
   if (document.querySelector('.setlist--item')) {
     require('./modules/setlist');
+  }
+
+  if (document.querySelector('.bandmember')) {
+    require('./modules/about');
   }
 
 }, false);

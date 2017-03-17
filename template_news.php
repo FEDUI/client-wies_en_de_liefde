@@ -11,10 +11,8 @@
 
   <section class="news">
 		<ul class="news-overview">
+			<?php Template::Render('./snippets/spinner'); ?>
 		</ul>
-
-
-
 	</section>
 
 
@@ -31,13 +29,19 @@
   					</div>
   				{{/if}}
   				{{#if this.text}}
-						{{#if this.toLarge}}<div class="news-item--text-container">{{/if}}
+						<div class="news-item--text-container">
 							<p class="news-item--text">{{text}}</p>
-						{{#if this.toLarge}}<span> ...</span></div>{{/if}}
+						{{#if this.toLarge}}<span> ...</span>{{/if}}
+						</div>
 					{{/if}}
   			{{#if this.url}}</a>{{/if}}
   		</li>
   	{{/each}}
+			<li class="news-overview--item news-item includes-text">
+				<a href="{{url}}" class="news-item--link see-more" target="_blank">
+					<p class="news-item--text">Al ons nieuws is te zien op Facebook</p>
+				</a>
+			</li>
   </script>
 </main>
 
