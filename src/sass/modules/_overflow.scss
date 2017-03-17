@@ -1,0 +1,42 @@
+.overflow {
+  &--text {
+    &.overflow {
+      .overflow--text-overflow {
+        height: 0;
+      }
+    }
+    &:not(.overflow) {
+      .overflow--text-overflow {
+        height: 100%;
+      }
+      .overflow--text-break {
+        display: none;
+      }
+    }
+  }
+  
+  &--text-overflow {
+    overflow: hidden;
+  }
+
+  &--text-break,
+  &--text-less {
+    padding: .2rem 0;
+    border: 0;
+    background-color: transparent;
+
+    font-size: inherit;
+    font-family: inherit;
+    color: $brand-primary;
+    border-bottom: 2px solid $brand-primary;
+
+    transition: .3s border;
+
+    @include hocus {
+      cursor: pointer;
+      outline: none;
+      // color: $brand-primary-darken;
+      border-bottom: 2px solid $brand-primary-darken;
+    }
+  }
+}

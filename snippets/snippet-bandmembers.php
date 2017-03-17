@@ -28,7 +28,7 @@ $counter = 0;
           <h3 class="bandmember--name"><?php the_sub_field('name'); ?></h3>
           <p class="bandmember--role"><?php the_sub_field('role'); ?></p>
           <?php  $text = get_sub_field('about'); ?>
-          <div class="bandmember--text"> <?php echo apply_filters('the_excerpt', $text); ?> </div>
+          <div class="bandmember--text overflow--text"> <?php echo apply_filters('the_excerpt', $text); ?> </div>
         </div>
       </article>
 <?php

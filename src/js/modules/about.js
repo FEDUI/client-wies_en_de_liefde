@@ -1,4 +1,4 @@
-const bandmembers = document.querySelectorAll('.bandmember--text');
+const bandmembers = document.querySelectorAll('.overflow--text');
 
 function getAllParags(article) {
   var parags = article.querySelectorAll('p');
@@ -29,7 +29,7 @@ function checkForBreak(parags) {
 
 function makeContainer(container, a) {
   var overflowContainer = document.createElement('div');
-  overflowContainer.classList.add('bandmember--text-overflow');
+  overflowContainer.classList.add('overflow--text-overflow');
   for (var i = a; i < container.length; i++) {
     overflowContainer.appendChild(container[i]);
   }
@@ -40,10 +40,21 @@ function makeContainer(container, a) {
   return overflowContainer;
 }
 
-function makeBreakElement() {
+function getName(container) {
+  var parentElement = '';
+  if (container.parentNode) { parentElement = container.parentNode; } else if (container.parentElement) { parentElement = container.parentElement; }
+  var name = parentElement.querySelector('h3').innerHTML;
+  // get only the first name
+  var space = name.indexOf(' ');
+  var fistName = name.substr(0, space)
+  return fistName;
+}
+
+function makeBreakElement(textContainer) {
   var breakElement = document.createElement('button');
-  breakElement.classList.add('bandmember--text-break');
-  breakElement.innerHTML = 'Lees meer';
+  var name = getName(textContainer);
+  breakElement.classList.add('overflow--text-break');
+  breakElement.innerHTML = 'Lees meer over ' + name;
 
   breakElement.addEventListener('click', toggleShow);
 
@@ -52,7 +63,7 @@ function makeBreakElement() {
 
 function createReadLess() {
   var breakElement = document.createElement('button');
-  breakElement.classList.add('bandmember--text-less');
+  breakElement.classList.add('overflow--text-less');
   breakElement.innerHTML = 'verberg';
 
   breakElement.addEventListener('click', toggleHide);
@@ -86,7 +97,7 @@ for (var i = 0; i < bandmembers.length; i++) {
 
   if (number) {
     var newContainer = makeContainer(allParags, number);
-    var breakElement = makeBreakElement();
+    var breakElement = makeBreakElement(bandmember);
     bandmember.classList.add('overflow');
     bandmember.appendChild(breakElement);
     bandmember.appendChild(newContainer);

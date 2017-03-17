@@ -27,45 +27,11 @@
     margin: 0;
     margin-bottom: .3rem;
 
-    font-size: 1.2rem;
+    @include adjust($font-size-band-member);
     font-weight: 300;
   }
   &--role {
     text-align: right;
-  }
-  &--text {
-    &.overflow {
-      .bandmember--text-overflow {
-        height: 0;
-      }
-    }
-    &:not(.overflow) {
-      .bandmember--text-overflow {
-        height: 100%;
-      }
-      .bandmember--text-break {
-        display: none;
-      }
-    }
-  }
-  &--text-overflow {
-    overflow: hidden;
-  }
-
-  &--text-break,
-  &--text-less {
-    padding: .2rem 0;
-    border: 0;
-    background-color: transparent;
-
-    font-size: inherit;
-    font-family: inherit;
-    color: $brand-primary;
-    border-bottom: 2px solid $brand-primary;
-
-    @include hocus {
-      cursor: pointer;
-    }
   }
 
   &--img {

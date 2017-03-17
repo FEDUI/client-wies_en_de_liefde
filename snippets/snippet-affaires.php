@@ -15,9 +15,9 @@ $counter = 0;
         <?php endif; ?>
 
         <div class="affaire--info">
-          <h2 class="affaire--name"><?php the_sub_field('name'); ?></h2>
+          <h3 class="affaire--name"><?php the_sub_field('name'); ?></h3>
           <p class="affaire--role"><?php the_sub_field('role'); ?></p>
-          <!-- <div class="affaire--text"> <?php the_sub_field('about'); ?> </div> -->
+          <div class="affaire--text overflow--text"> <?php the_sub_field('about'); ?> </div>
         </div>
       </article>
 <?php

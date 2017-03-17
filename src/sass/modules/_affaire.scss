@@ -1,7 +1,7 @@
 .affaire {
   width: 100%;
   display: inline-block;
-  margin: 0 .3rem;
+  margin: 0 .3rem 2rem .3rem;
 
   vertical-align: top;
   background-color: $white;
@@ -10,8 +10,14 @@
     width: 23%;
   }
 
-  &--info {
+  &--name {
+    margin: 0;
+    @include adjust($font-size-band-member);
+    font-weight: 300;
+  }
 
+  &--info {
+    padding: 1rem;
   }
   &--role {
     text-align: right;
