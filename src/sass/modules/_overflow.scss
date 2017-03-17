@@ -14,7 +14,7 @@
       }
     }
   }
-  
+
   &--text-overflow {
     overflow: hidden;
   }
@@ -27,6 +27,7 @@
 
     font-size: inherit;
     font-family: inherit;
+    text-align: left;
     color: $brand-primary;
     border-bottom: 2px solid $brand-primary;
 

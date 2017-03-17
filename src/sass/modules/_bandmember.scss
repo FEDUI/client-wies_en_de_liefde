@@ -4,6 +4,32 @@
 
   @include card-shadow;
 
+  @include min-width(500px) {
+    max-width: 23rem;
+    margin: 0 auto;
+  }
+
+  @include min-width($bp-first-bandmember-divide) {
+    max-width: 100%;
+
+    &:not(.bandmember--first) {
+      max-width: 23rem;
+      margin: 0 auto;
+    }
+  }
+
+
+  @include min-width(1200px) {
+    &:not(.bandmember--first) {
+      max-width: 100%;
+      width: 31%;
+      display: inline-block;
+      margin: 0 .5%;
+
+      vertical-align: top;
+    }
+  }
+
   @include min-width(1200px) {
     width: 31%;
     display: inline-block;
@@ -50,7 +76,7 @@
 
   .bandmember {
     &--img-container {
-      @include min-width(750px) {
+      @include min-width($bp-first-bandmember-divide) {
         width: calc(49% - 1rem);
         display: inline-block;
         margin-right: 1rem;
@@ -60,7 +86,11 @@
     }
     &--info {
       display: inline-block;
-      width: 50%;
+      width: 100%;
+
+      @include min-width($bp-first-bandmember-divide) {
+        width: 50%;
+      }
     }
   }
 }
