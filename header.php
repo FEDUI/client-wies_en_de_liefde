@@ -5,14 +5,18 @@
 	<?php wp_head(); ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<body>
+<body class="feather">
 	<header class="main-header">
 		<button class="main-header--button menu-toggle">
 			<?php Template::Render('icon-hamburger'); ?>
 			<span class="menu-toggle--name">Menu</span>
 		</button>
 
-		<svg class="logo clip" viewBox="0 624.22 1478.735 4568.28">
+		<!--
+			The viewBox is changed to fit the image better, if it seems to be a mistake, here is the old viewbox
+			<svg class="logo clip" viewBox="0 624.22 1478.735 4568.28">
+		-->
+		<svg class="logo clip" viewBox="0 600 1717.735 4828.28">
 		  <clipPath id="cloudClip">
 				<path d="M0,3040.835c-0.017,0.443,0,183.667,0,183.667l-0.338,1961.985c0,0,102.594,2.457,115.535-0.006
 						c3.917-0.746,44.405-1976.014,48.344-1976.777c87.089-16.883,177.446-37.634,177.372-37.194

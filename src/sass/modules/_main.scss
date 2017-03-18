@@ -1,0 +1,8 @@
+.main {
+
+  &--title {
+    @include min-width($bp-full-menu) {
+      display: none;
+    }
+  }
+}

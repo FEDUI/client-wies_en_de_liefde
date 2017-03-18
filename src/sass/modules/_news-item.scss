@@ -35,6 +35,7 @@
     max-height: 7.3rem;
     overflow: hidden;
 
+    padding: 0.4rem 1rem;
     margin-top: .5rem;
   }
 
@@ -48,7 +49,7 @@
     @include min-width(450px) { max-height: 30rem; }
     @include min-width(600px) { max-height: 19rem; }
     @include min-width(750px) { max-height: 22rem; }
-    @include min-width(1200px) { max-height: 18rem; }
+    @include min-width(1200px) { max-height: 30rem; }
   }
 
   // Types

@@ -8,7 +8,7 @@ Template Name: Calendar
 <?php get_header(); ?>
 
 <main>
-  <h1><?php echo get_the_title(); ?></h1>
+  <h1 class="main--title"><?php echo get_the_title(); ?></h1>
 
   <section class="calendar">
 		<ul class="calendar--list eventList"></ul>

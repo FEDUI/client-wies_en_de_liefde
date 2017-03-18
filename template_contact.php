@@ -9,7 +9,7 @@ Template Name: Contact
 
 <main class="contact">
   <article class="contact--item">
-    <h1><?php echo get_the_title(); ?></h1>
+    <h1 class="main--title"><?php echo get_the_title(); ?></h1>
 
     <!-- loop thrue the content of the page -->
     <?php

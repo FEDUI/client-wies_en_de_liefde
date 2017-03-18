@@ -11,6 +11,8 @@ Template Name: photowall
 
 
 <main>
+  <h1 class="main--title"><?php echo get_the_title(); ?></h1>
+  
   <section class="pictures">
       <?php Template::Render('./snippets/spinner'); ?>
   </section>

@@ -8,7 +8,7 @@ Template Name: Setlist
 <?php get_header(); ?>
 
 <main>
-  <h1><?php echo get_the_title(); ?></h1>
+  <h1 class="main--title"><?php echo get_the_title(); ?></h1>
 
   <!-- Loop thrue the social media items -->
   <section class="setlist">

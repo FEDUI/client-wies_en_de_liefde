@@ -19,7 +19,10 @@
     @include min-width($bp-full-menu) {
       display: block;
       position: absolute;
-      bottom: 0rem; left: 4rem;
+      bottom: 0rem; left: 1rem;
+    }
+    @include min-width($bp-full-size-menu) {
+      left: 4rem; right: 3rem;
     }
   }
 

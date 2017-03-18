@@ -6,8 +6,8 @@
 
 <?php get_header(); ?>
 
-<main class="home">
-	<h1><?php echo get_the_title(); ?></h1>
+<main>
+	<h1 class="main--title"><?php echo get_the_title(); ?></h1>
 
   <section class="news">
 		<ul class="news-overview">
@@ -39,7 +39,7 @@
   	{{/each}}
 			<li class="news-overview--item news-item includes-text">
 				<a href="{{url}}" class="news-item--link see-more" target="_blank">
-					<p class="news-item--text">Al ons nieuws is te zien op Facebook</p>
+					<p class="news-item--text">Lees al het nieuws over ons op Facebook</p>
 				</a>
 			</li>
   </script>

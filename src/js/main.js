@@ -1,12 +1,16 @@
 var facebook = require('./modules/facebook');
 const instagram = require('./modules/instagram');
 
-// instagram.connect();
-facebook.getAcces();
-
 window.addEventListener('DOMContentLoaded', function() {
+  // Menu
   const menu = require('./modules/nav');
   menu.set();
+
+  // Modernizr to check for the CSS mask of the SVG
+  require('./lib/modernizr-custom.min');
+
+  // Facebook (check is in facebook.js)
+  facebook.getAcces();
 
   if ( document.querySelector('.pictures') ) {
     instagram.connect();
@@ -19,5 +23,9 @@ window.addEventListener('DOMContentLoaded', function() {
   if (document.querySelector('.bandmember')) {
     require('./modules/about');
   }
+
+  setTimeout(function() {
+    document.querySelector('body').classList.add('js-clip');
+  }, 100);
 
 }, false);
