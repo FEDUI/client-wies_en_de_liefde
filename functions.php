@@ -17,6 +17,24 @@
 
 	add_action( 'wp_enqueue_scripts', 'wedl_scripts' );
 
+	/**
+	 * Register our sidebars and widgetized areas.
+	 *
+	 */
+	function arphabet_widgets_init() {
+
+		register_sidebar( array(
+			'name'          => 'Mailchimp Sidebar',
+			'id'            => 'footer_bottom_1',
+			'before_widget' => '<div>',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="rounded">',
+			'after_title'   => '</h2>',
+		) );
+
+	}
+	add_action( 'widgets_init', 'arphabet_widgets_init' );
+
 	function register_my_menu() {
   	register_nav_menu('header-menu',__( 'Header Menu' ));
 	}

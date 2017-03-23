@@ -1,12 +1,14 @@
+// Base Colors
+$black:   #383838;
+$white:   #fff;
+$gray:    #b9b3bf;
+$yellow:  #E1CE7F;
+
 // Project Colors
 $brand-primary: tomato;
 $brand-primary-darken: darken($brand-primary, 20%);
 
-
-// Base Colors
-$black:   #000;
-$white:   #fff;
-$gray:    #b9b3bf;
+$brand-secondary: $yellow;
 
 $text:    $black;
 
@@ -20,14 +22,35 @@ $base-font-size: (
 
 $font-size-band-member: (
   xs: 1.2rem,
+  sm: 1.4rem,
+  md: 1.5rem,
+  lg: 1.6rem
+);
+$font-size-lovers: (
+  xs: 1.1rem,
   sm: 1.2rem,
-  md: 1.2rem,
-  lg: 1.2rem
+  md: 1.3rem,
+  lg: 1.3rem
 );
 
+$prev-font-size: (
+  xs: 3rem,
+  sm: 3.2rem,
+  md: 3.4rem,
+  lg: 3.625rem // 58px
+);
+
+$h2-like: (
+  xs: 2rem,
+  sm: 2.1rem,
+  md: 2.2rem,
+  lg: 2.3125rem // 58px
+);
 // Fonts
 $montserrat: "Montserrat Regular", sans-serif;
 $montserrat-bold: "Montserrat Bold", sans-serif;
+
+$title-font: "Fira Sans", sans-serif;
 
 // Layout
 $container:      45rem;

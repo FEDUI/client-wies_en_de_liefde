@@ -13,7 +13,7 @@ $counter = 0;
 
     ?>
     <?php if ($counter === 1) { ?>
-      <h2>De liefdes</h2>
+      <h2 class="bandmembers--sub-title">De liefdes</h2>
     <?php } ?>
       <article class="<?php echo $class; ?> bandmember">
         <?php

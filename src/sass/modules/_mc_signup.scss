@@ -1,0 +1,81 @@
+#mc_signup {
+
+}
+
+// inputs
+.mc_form_inside {
+  .mc_merge_var {
+
+    label {
+      display: block;
+    }
+    input {
+      display: block;
+      width: 100%;
+      border: 0;
+      background-color: $white;
+      padding: .4rem;
+      font-size: inherit;
+
+      &:focus {
+        outline-color: $brand-primary;
+      }
+    }
+
+    &:nth-of-type(2) { // Mail
+
+    }
+
+    &:nth-of-type(3) { // voornaam
+      display: inline-block;
+      width: calc(49% - .5rem);
+      margin: .3rem .5rem 0rem 0rem;
+    }
+    &:nth-of-type(4) { // achternaam
+      display: inline-block;
+      width: calc(49% - .5rem);
+      margin: .3rem 0rem 0rem .5rem;
+    }
+  }
+
+  // requierd message
+  .mc-indicates-required {
+    display: none;
+  }
+
+  // submit
+  div.mc_signup_submit {
+    margin-top: 1rem;
+
+    input {
+      width: 100%;
+      padding: 0.4rem;
+
+      font-family: inherit;
+      font-size: inherit;
+      background-color: white;
+      border: 0;
+
+      transition: .3s background-color;
+
+      @include hocus {
+        cursor: pointer;
+        background-color: $brand-primary;
+        outline: 0;
+      }
+    }
+  }
+}
+
+.rounded {
+  margin: 0;
+  // margin-bottom: .2rem;
+}
+#mc_subheader {
+  margin-bottom: .6rem;
+}
+
+#mc_message {
+  margin: 1.1rem 0.1rem;
+  font-size: 1.2em;
+}

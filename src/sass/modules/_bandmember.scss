@@ -54,10 +54,11 @@
     margin-bottom: .3rem;
 
     @include adjust($font-size-band-member);
-    font-weight: 300;
+    font-weight: 600;
   }
   &--role {
     text-align: right;
+    margin: 0.1rem 0 0 0;
   }
 
   &--img {

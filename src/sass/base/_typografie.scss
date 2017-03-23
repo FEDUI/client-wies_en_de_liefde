@@ -1,0 +1,16 @@
+body {
+  font-family: $montserrat;
+  line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" on;
+
+  color: $black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $title-font;
+  font-style: italic;
+}

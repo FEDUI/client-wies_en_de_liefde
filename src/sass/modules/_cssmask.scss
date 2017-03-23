@@ -9,6 +9,7 @@
     .clip {
       @include min-width($bp-full-menu) {
         transform: translateX(-19%);
+        // transform: translateX(-17.4%);
       }
     }
 
@@ -18,10 +19,10 @@
       }
       @include min-width($bp-full-size-menu) {
         transform: translateX(58%);
+        // transform: translateX(58rem);
       }
     }
   }
-
 
   #menu-main-menu {
 

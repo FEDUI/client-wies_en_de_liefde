@@ -1,0 +1,13 @@
+.home {
+
+  &--section {
+    margin-bottom: 3rem;
+
+    @include min-width(1000px) {
+      margin-bottom: 7rem;
+    }
+  }
+  &--sub-title {
+    @include adjust($h2-like);
+  }
+}

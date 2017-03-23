@@ -1,0 +1,56 @@
+.bus-prev {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 70%;
+
+  border-radius: .3rem;
+
+  color: $white;
+  @include adjust($prev-font-size);
+  font-family: $title-font;
+  font-style: italic;
+  font-weight: bold;
+
+  &--link {
+    display: block;
+    padding: 4rem 1rem;
+
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
+    background: linear-gradient(to right, transparent, rgba($gray, .4), transparent);
+
+    @include min-width(800px) {
+      padding: 6rem 1rem;
+    }
+
+    @include hocus {
+      color: $white;
+
+      .bus-prev--text {
+        border-radius: 1rem;
+      }
+    }
+  }
+  &--title {
+    text-align: center;
+    font-size: inherit;
+  }
+  &--text {
+    display: table;
+    margin: 0 auto; padding: 1rem 2.1rem;
+
+    font-size: .4em;
+    text-align: center;
+
+    background-color: $brand-secondary;
+    border-radius: .3rem;
+
+    transition: .3s border-radius;
+
+    p {
+      margin: 0;
+    }
+  }
+}

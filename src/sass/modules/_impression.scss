@@ -1,0 +1,25 @@
+.impression {
+
+  &--card {
+    position: relative;
+    width: 100%; max-width: 22.5rem;
+    display: block;
+    @include card-shadow;
+    @include card-padding;
+    margin: 1rem;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0; left: 50;
+      width: 10rem;
+      height: 3rem;
+      transform: translate(50%, -50%);
+      background-color: green;
+    }
+  }
+
+  &--img {
+    width: 100%;
+  }
+}
