@@ -5,9 +5,17 @@
 
   &--movie {
     width: 100%;
+    margin-bottom: 7rem;
 
     @include min-width($bp-reorder-bus) {
       order: 1;
+      margin-bottom: 13rem;
+      margin-left: auto;
+    }
+
+    &-frame {
+      float: right;
+    margin-right: 20%;
     }
   }
 
@@ -18,6 +26,8 @@
 
     @include min-width($bp-reorder-bus) {
       order: 3;
+      width: calc(50% - 1rem);
+      margin-left: 1rem;
     }
 
     p {
@@ -33,6 +43,7 @@
 
     @include min-width($bp-reorder-bus) {
       order: 2;
+      width: calc(50% - 1rem);
     }
   }
 

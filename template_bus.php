@@ -12,7 +12,7 @@ Template Name: Buslading-muziek
 
   <!-- iframe about bus -->
   <section class="bus--movie">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/WdGmTUzkPjQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+    <iframe class="bus--movie-frame" width="560" height="315" src="https://www.youtube.com/embed/WdGmTUzkPjQ?ecver=1" frameborder="0" allowfullscreen></iframe>
   </section>
 
   <!-- text about bus -->

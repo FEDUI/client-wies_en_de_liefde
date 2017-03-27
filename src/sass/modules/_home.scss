@@ -10,4 +10,10 @@
   &--sub-title {
     @include adjust($h2-like);
   }
+
+  .calendar {
+    @include min-width($align-calendar-content) {
+      margin-left: 0;
+    }
+  }
 }
