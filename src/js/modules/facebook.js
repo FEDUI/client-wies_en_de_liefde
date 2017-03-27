@@ -25,8 +25,8 @@ facebook.getData = function(accessToken) {
     limit = '.limit(10)';
   }
 
-  var _accessToken = accessToken;
-  var url = 'https://graph.facebook.com/' + keys.fb.user + '/?fields=events' + limit + '&' + _accessToken;
+  var _accessToken = accessToken.access_token;
+  var url = 'https://graph.facebook.com/' + keys.fb.user + '/?fields=events' + limit + '&access_token=' + _accessToken;
   facebook.APICall(url, filter.events);
 
 };
@@ -36,7 +36,7 @@ facebook.getData = function(accessToken) {
 // Get the data from Facebook
 facebook.getPosts = function(accessToken) {
 
-  var _accessToken = accessToken;
+  var _accessToken = accessToken.access_token;
 
   // if on the homepage, just get 3 hits
   var limit = '';
@@ -45,21 +45,21 @@ facebook.getPosts = function(accessToken) {
   }
 
 
-  var url = 'https://graph.facebook.com/' + keys.fb.user + '/?fields=posts' + limit + '&' + _accessToken;
+  var url = 'https://graph.facebook.com/' + keys.fb.user + '/?fields=posts' + limit + '&access_token=' + _accessToken;
   facebook.APICall(url, facebook.getEntirePost, _accessToken);
 
 };
 
 facebook.getPostDetails = function(postId, accessToken, postAmount) {
 
-  var url = 'https://graph.facebook.com/' + postId + '/attachments?' + accessToken;
+  var url = 'https://graph.facebook.com/' + postId + '/attachments/?access_token=' + accessToken;
   facebook.APICall(url, filter.posts, postAmount);
 
 };
 
 facebook.getEntirePost = function(data, accessToken) {
 
-  var _data = JSON.parse(data);
+  var _data = data;
   var posts = _data.posts.data;
   var postAmount = posts.length;
 
@@ -99,10 +99,11 @@ facebook.APICall = function(url, callback, token) {
   var xhttp = new XMLHttpRequest();
   xhttp.onloadend = function() {
       if (xhttp.response) {
+        var res = JSON.parse(xhttp.response);
         if (token) {
-          callback(xhttp.response, token);
+          callback(res, token);
         } else {
-          callback(xhttp.response);
+          callback(res);
         }
       }
   };

@@ -1,3 +1,46 @@
 .bus {
-  
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &--movie {
+    width: 100%;
+
+    @include min-width($bp-reorder-bus) {
+      order: 1;
+    }
+  }
+
+  &--article {
+    max-width: 40rem;
+    display: inline-block;
+    margin-left: auto;
+
+    @include min-width($bp-reorder-bus) {
+      order: 3;
+    }
+
+    p {
+
+    }
+  }
+
+  &--impression {
+    max-width: 40rem;
+    width: 100%;
+    display: inline-block;
+    margin-right: auto;
+
+    @include min-width($bp-reorder-bus) {
+      order: 2;
+    }
+  }
+
+  &--footer {
+    width: 100%;
+
+    @include min-width($bp-reorder-bus) {
+      order: 4;
+    }
+  }
 }

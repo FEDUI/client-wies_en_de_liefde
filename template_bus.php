@@ -45,7 +45,7 @@ Template Name: Buslading-muziek
 
   <!-- footer of this page -->
   <section class="bus--footer">
-
+FOOooooooooooter
   </section>
 </main>
 

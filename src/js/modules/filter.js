@@ -7,7 +7,7 @@ var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep',
 
 filter.events = function(data) {
 
-    var _data = filter.parse(data);
+    var _data = data;
     var events = _data.events.data;
     var d = new Date();
     var currentMonth = d.getMonth() + 1;
@@ -127,7 +127,7 @@ var counter = 0;
 // Filter the Posts data
 filter.posts = function(data, postAmount) {
 
-  var _data = JSON.parse(data);
+  var _data = data;
   var postsData = _data.data[0];
   var post = {};
 
@@ -170,7 +170,6 @@ filter.posts = function(data, postAmount) {
       case 'video_share_youtube':
       // @TODO: Get the url to the video!
         post.type = 'video';
-        console.log(postsData);
         if ( postsData.url ) { post.url = postsData.url; }
         if ( postsData.target.url ) { post.image = [postsData.media.image.src]; }
         if (postsData.description) {post.text = postsData.title; }
