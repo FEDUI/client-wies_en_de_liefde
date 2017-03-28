@@ -42,11 +42,6 @@ Template Name: Buslading-muziek
       endif;
     ?>
   </section>
-
-  <!-- footer of this page -->
-  <section class="bus--footer">
-FOOooooooooooter
-  </section>
 </main>
 
 <?php get_footer(); ?>

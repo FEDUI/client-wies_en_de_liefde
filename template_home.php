@@ -7,8 +7,19 @@
 <?php get_header(); ?>
 
 <main class="home">
-	<!-- <iframe src="" width="" height=""></iframe> -->
-	<!-- normal content -->
+	<section class="home--introduction">
+		<?php the_field('homepage-video'); ?>
+
+
+		<?php
+			if ( have_posts() ) {
+				while ( have_posts() ) {
+					the_post();
+					the_content();
+				}
+			}
+		?>
+	</section>
 
 	<section class="home--section">
 		<h2 class="home--sub-title">Agenda</h2>
@@ -21,15 +32,31 @@
 		$prevImg = get_field('bus-preview-img');
 		$prevLink = get_field('bus-preview-link');
 	?>
-	<section class="home--section bus-prev" style="background-image: url(<?php echo $prevImg['url']; ?>)">
-		<?php if ($prevLink) { ?> <a class="bus-prev--link" href="<?php echo $prevLink ?>"> <?php } ?>
-			<?php if ($prevTitle) { ?> <h2 class="bus-prev--title"><?php echo $prevTitle; ?></h2> <?php } ?>
-			<?php if ($prevText) { ?>
-				<div class="bus-prev--text">
-					<?php echo $prevText ?>
-				</div>
-			<?php } ?>
-		<?php if ($prevLink) { ?> </a> <?php } ?>
+	<section class="home--section bus-prev">
+		<?php if ($prevTitle) { ?> <h2 class="bus-prev--title home--sub-title"><?php echo $prevTitle; ?></h2> <?php } ?>
+
+		<div class="bus-prev--images">
+			<?php
+	      if( have_rows('bus-preview-images') ):
+	        while ( have_rows('bus-preview-images') ) : the_row();
+	          $busImage = get_sub_field('bus-preview-image');
+	          if( !empty($busImage) ): ?>
+	            <div class="impression--card">
+	              <img class="impression--img bus-prev--img" src="<?php echo $busImage['url']; ?>" alt="Afbeelding van de bus" />
+	            </div>
+	          <?php endif;
+	        endwhile;
+	      endif;
+	    ?>
+		</div>
+
+		<?php if ($prevText) { ?>
+			<?php echo $prevText ?>
+		<?php } ?>
+
+		<?php if ($prevLink) { ?>
+			<a class="bus-prev--link" href="<?php echo $prevLink ?>">Stap nu maar in</a>
+		<?php } ?>
 
 	</section>
 

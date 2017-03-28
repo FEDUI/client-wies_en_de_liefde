@@ -23,6 +23,7 @@
     max-width: 40rem;
     display: inline-block;
     margin-left: auto;
+    margin-bottom: 3rem;
 
     @include min-width($bp-reorder-bus) {
       order: 3;

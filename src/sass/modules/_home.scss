@@ -1,5 +1,20 @@
 .home {
 
+  &--introduction {
+    max-width: 41.25rem;
+    margin-left: auto;
+    margin-bottom: 8rem;
+
+    @include min-width(1100px) {
+      margin-right: 6.875rem;
+    }
+
+    iframe {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+
   &--section {
     margin-bottom: 3rem;
 
