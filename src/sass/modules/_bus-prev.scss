@@ -1,10 +1,5 @@
 .bus-prev {
-  max-width: 41.25rem;
-  margin-left: auto;
-
-  @include min-width(1100px) {
-    margin-right: 6.875rem;
-  }
+  @include home-right-container;
 
   &--title {
     text-align: center;

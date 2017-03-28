@@ -1,10 +1,6 @@
-<section class="calendar">
-  <ul class="calendar--list eventList">
-    <?php Template::Render('./snippets/spinner'); ?>
-  </ul>
-
-  <a href="" class="calendar--more more">Bekijk alle evenementen</a>
-</section>
+<ul class="calendar--list eventList">
+  <?php Template::Render('./snippets/spinner'); ?>
+</ul>
 
 <script id="calendar-template" type="text/x-handlebars-template">
   {{#each this}}

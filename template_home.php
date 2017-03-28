@@ -7,7 +7,7 @@
 <?php get_header(); ?>
 
 <main class="home">
-	<section class="home--introduction">
+	<section class="home--section home--introduction">
 		<?php the_field('homepage-video'); ?>
 
 
@@ -23,13 +23,16 @@
 
 	<section class="home--section">
 		<h2 class="home--sub-title">Agenda</h2>
-		<?php Template::Render('./snippets/snippet-calendar'); ?>
+		<div class="calendar">
+	    <?php Template::Render('./snippets/snippet-calendar'); ?>
+
+	    <a href="/agenda" class="calendar--more more">Bekijk al onze optredens</a>
+	  </div>
 	</section>
 
 	<?php
 		$prevTitle = get_field("bus-preview-title");
 		$prevText = get_field("bus-preview-text");
-		$prevImg = get_field('bus-preview-img');
 		$prevLink = get_field('bus-preview-link');
 	?>
 	<section class="home--section bus-prev">
@@ -65,22 +68,21 @@
 		<?php Template::Render('./snippets/snippet-news'); ?>
 	</section>
 
-	<section class="home--section contact">
+	<section class="home--section home--contact contact">
 		<h2 class="home--sub-title contact--title">Contact</h2>
-		<div class="contact--text">
-			<img src="" alt="">
-		</div>
-		<div class="">
-			<!-- render content -->
-			<p class="f-contact--text">
-	      Voor het boeken van Wies en de Liefde met bus,
-	      een huiskamerconcert of een optreden van Wies en de Liefde (zonder bus) kan je
-	      contact opnemen met Wies Kavelaar via <a href="mailto:boekingen@wiesendeliefde.nl">boekingen@wiesendeliefde.nl</a> of <a href="06-47138297">06-47138297.</a>
-	    </p>
-	    <p class="f-contact--text">
-	      Voor algemene vragen, of als het de bezigheden van individuele bandleden aangaat, kan je mailen naar: <a href="mailto:info@wiesendeliefde.nl">info@wiesendeliefde.nl</a>
-	    </p>
-		</div>
+		<article class="contact--item">
+	    <img class="contact--wies" src="<?php echo get_template_directory_uri(); ?>/dist/img/hero/wies.png" alt="Afbeelding van Wies Kavelaar">
+			<?php
+			    // query for the about page
+			    $your_query = new WP_Query( 'pagename=contact' );
+			    // "loop" through query (even though it's just one page)
+			    while ( $your_query->have_posts() ) : $your_query->the_post();
+			        the_content();
+			    endwhile;
+			    // reset post data (important!)
+			    wp_reset_postdata();
+			?>
+	  </article>
 	</section>
 
 </main>

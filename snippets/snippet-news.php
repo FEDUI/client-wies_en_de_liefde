@@ -26,9 +26,9 @@
       {{#if this.url}}</a>{{/if}}
     </li>
   {{/each}}
-    <li class="news-overview--item news-item includes-text">
-      <a href="{{url}}" class="news-item--link see-more" target="_blank">
-        <p class="news-item--text">Lees al het nieuws over ons op onze Facebook</p>
-      </a>
-    </li>
+  <li class="news-overview--item news-item includes-text">
+    <a href="{{url}}" class="news-item--link see-more" target="_blank">
+      <p class="news-item--text">Bekijk al ons nieuws</p>
+    </a>
+  </li>
 </script>
