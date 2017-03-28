@@ -3,6 +3,7 @@ var frames = document.querySelectorAll('.frame');
 // Loop thrue all the setlist items
 for (var i = 0; i < frames.length; i++) {
   var frame = frames[i];
+  console.dir(frame);
   var outerElement = frame.parentNode; // Get the outer element of a frame
   outerElement.addEventListener('click', showVideo); // Add eventListener on list item
   outerElement.classList.add('setlist--hover');

@@ -8,10 +8,13 @@ Template Name: Setlist
 <?php get_header(); ?>
 
 <main>
-  <h1 class="main--title"><?php echo get_the_title(); ?></h1>
-
   <!-- Loop thrue the social media items -->
   <section class="setlist">
+    <?php $setlistTitle = get_field('setlist-title'); ?>
+    <?php if( !empty($setlistTitle) ): ?>
+      <h1 class="setlist--title"><img class="setlist--title-img" src="<?php echo $setlistTitle['url']; ?>" alt="Wies en de liefde - Setlist" /></h1>
+    <?php endif; ?>
+
     <ul class="setlist--list">
       <?php
         // check if the repeater field has rows of data
@@ -20,17 +23,22 @@ Template Name: Setlist
           while ( have_rows('setlist') ) : the_row();
           ?>
           <li class="setlist--item">
-            <?php $image = get_sub_field('image');
-            if( !empty($image) ): ?>
-              <img class="setlist--img" src="<?php echo $image['url']; ?>" alt="<?php the_sub_field('title'); ?>" />
-            <?php endif; ?>
+            <div class="setlist--img-container">
+              <?php $image = get_sub_field('image');
+                    $extraImage = get_sub_field('extra-img');
+              if( !empty($image) ): ?>
+                <img class="setlist--img" src="<?php echo $image['url']; ?>" alt="<?php the_sub_field('title'); ?>" />
+              <?php endif;
+              if( !empty($extraImage) ): ?>
+                <img class="setlist--img-extra" src="<?php echo $extraImage['url']; ?>" alt="Extra toevoeging tot het setlistitem" />
+              <?php endif; ?>
+            </div>
 
             <?php if ( get_sub_field('link') ) { ?>
               <div class="frame frame--hide">
                 <button class="frame--remove">
                   X
                 </button>
-                <!-- <embed type="video/quicktime" src="#" width="300" height="300"> -->
                 <?php the_sub_field('link'); ?>
               </div>
             <?php } ?>

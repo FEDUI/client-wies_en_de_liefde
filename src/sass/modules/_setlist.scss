@@ -1,16 +1,50 @@
 .setlist {
+  max-width: 62.5rem;
+
+  &--title {
+    max-width: 41.875rem;
+  }
+  &--title-img {
+    width: 100%;
+  }
+
+  &--list {
+    position: relative;
+
+    @include min-width(1100px) {
+      &:after {
+      content: "";
+      position: absolute;
+      top: 50%; right: 0;
+      width: 12.5rem; height: 17.5rem;
+
+      display: block;
+      z-index: 10;
+
+      background-image: url("../img/decoration/wies-staan.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      }
+    }
+  }
+
   &--item {
-    max-width: 10rem;
+    max-width: 23rem;
 
     list-style-type: none;
     margin: 2rem;
+
+    @include min-width(700px) {
+      max-height: 4.375rem;
+      max-width: 100%;
+    }
   }
 
   &--hover {
     @include hocus {
       cursor: pointer;
     }
-    
+
     .setlist--img {
       transition: .3s transform;
       transform-origin: center;
@@ -24,5 +58,19 @@
   &--img {
     width: 100%;
     display: block;
+
+    @include min-width(700px) {
+      width: auto;
+      display: inline-block;
+    }
+  }
+  &--img-extra {
+    display: none;
+
+    @include min-width(700px) {
+      display: inline-block;
+      transform: translateY(-50%);
+      z-index: -10;
+    }
   }
 }

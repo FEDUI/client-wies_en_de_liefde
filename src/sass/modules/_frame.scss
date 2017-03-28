@@ -21,6 +21,7 @@
   &--remove {
     position: absolute;
     top: 1rem; right: 1rem;
+    z-index: 30;
 
     color: white;
     font-size: 2rem;
@@ -31,6 +32,9 @@
     @include min-width(800px) {
       top: 3rem; right: 3rem;
     }
+  }
+  &--show {
+    z-index: 10;
   }
 
 
