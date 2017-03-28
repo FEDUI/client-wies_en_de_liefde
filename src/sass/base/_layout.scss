@@ -39,7 +39,7 @@ main {
   }
 }
 
-main, footer {
+main {
   @include min-width($bp-full-menu) {
     margin-left: $header-margin-m;
   }

@@ -1,34 +1,42 @@
+$footer-margin: 2rem;
+
 .footer {
-  position: relative;
-  padding: 5rem 0 3rem 0;
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 2rem 2rem;
 
-  background-image: url("../img/hero/footer-large.jpg");
-  background-position: right;
-  background-repeat: no-repeat;
-  background-size: cover;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
 
-  color: white;
+  @include min-width(1100px) {
+    justify-content: space-between;
+  }
 
-  &--contact {
-    max-width: 33rem;
-    margin: 0 auto;
-    padding: 0 1rem;
+  &--greetz {
+    max-width: 12.5rem;
+    display: inline-block;
+    margin: 0 1rem $footer-margin 1rem;
+  }
+  &--greetz-img {
+    width: 100%;
   }
 
   &--newsletter {
-    position: absolute;
-    top: -13rem;
-    right: 1rem;
-
-    background-color: rgba($brand-primary, .8);
-    border-radius: .3rem;
-
-    > div {
-      padding: 1.3rem 2.2rem;
-      max-width: 38rem;
-      width: 28rem;
-      margin: 0 auto;
-    }
+    max-width: 35.3125rem;
+    width: 100%;
+    display: inline-block;
+    margin: 0 1rem $footer-margin 1rem;
   }
-
+  &--social-media.social-media {
+    width: 11rem;
+    display: inline-flex;
+    margin: 0 1rem $footer-margin 1rem;
+  }
+  &--social-media .social-media--link {
+    margin: 0 0.1rem;
+  }
 }

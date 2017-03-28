@@ -17,6 +17,12 @@
     max-width: 2rem;
     display: block;
     margin: .71875rem;
+
+    transition: .3s transform;
+
+    @include hocus {
+      transform: rotate(4deg) scale(1.1);
+    }
   }
   &--img {
     width: 100%;

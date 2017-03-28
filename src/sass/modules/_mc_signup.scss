@@ -1,18 +1,30 @@
-#mc_signup {
-
-}
-
 // inputs
 .mc_form_inside {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  @include min-width(520px) {
+    flex-direction: row;
+  }
+
   .mc_merge_var {
+    display: block;
+    width: 12.5rem;
+    margin-right: .625rem;
+    margin-top: .5rem;
+
+    @include min-width(520px) {
+      display: inline-block;
+    }
 
     label {
-      display: block;
+      display: none;
     }
     input {
-      display: block;
+      display: inline-block;
       width: 100%;
-      border: 0;
+      border: 1px solid $gray;
       background-color: $white;
       padding: .4rem;
       font-size: inherit;
@@ -23,18 +35,14 @@
     }
 
     &:nth-of-type(2) { // Mail
-
+      order: 2;
     }
 
     &:nth-of-type(3) { // voornaam
-      display: inline-block;
-      width: calc(49% - .5rem);
-      margin: .3rem .5rem 0rem 0rem;
+      order: 1;
     }
     &:nth-of-type(4) { // achternaam
-      display: inline-block;
-      width: calc(49% - .5rem);
-      margin: .3rem 0rem 0rem .5rem;
+      display: none;
     }
   }
 
@@ -45,23 +53,29 @@
 
   // submit
   div.mc_signup_submit {
-    margin-top: 1rem;
+    display: inline-block;
+    width: 8.5rem;
+    order: 3;
+    margin-top: .5rem;
+    margin-left: 0.1rem;
 
     input {
       width: 100%;
       padding: 0.4rem;
 
       font-family: inherit;
+      font-weight: 300;
       font-size: inherit;
-      background-color: white;
+      background-color: $brand-primary;
+      color: $white;
       border: 0;
 
-      transition: .3s background-color;
+      transition: .2s background-color;
 
       @include hocus {
         cursor: pointer;
-        background-color: $brand-primary;
         outline: 0;
+        background-color: lighten($brand-primary, 20%);
       }
     }
   }
@@ -69,13 +83,18 @@
 
 .rounded {
   margin: 0;
+  display: none;
   // margin-bottom: .2rem;
 }
 #mc_subheader {
   margin-bottom: .6rem;
+  font-size: 1em;
 }
 
 #mc_message {
   margin: 1.1rem 0.1rem;
-  font-size: 1.2em;
+  font-size: 1em;
+}
+#mc-indicates-required {
+  display: none;
 }

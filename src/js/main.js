@@ -9,6 +9,11 @@ window.addEventListener('DOMContentLoaded', function() {
   // Modernizr to check for the CSS mask of the SVG
   require('./lib/modernizr-custom.min');
 
+  // set the placeholder for the mailchimp form
+  if ( document.querySelector('.footer--newsletter') ) {
+    require('./modules/newsletter');
+  }
+
   // Facebook (check is in facebook.js)
   facebook.getAcces();
 
