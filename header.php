@@ -4,6 +4,9 @@
 	<title>Wies en de Liefde</title>
 	<?php wp_head(); ?>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Wies en de liefde">
+  <meta name="keywords" content="Muziek,de liefde,Wies en de Liefde,Bus,Buslading Muziek">
+  <meta name="author" content="Wies Kavelaar">
 </head>
 <body class="feather">
 	<header class="main-header">

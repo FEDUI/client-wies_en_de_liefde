@@ -125,14 +125,12 @@ var filteredPosts = [];
 var counter = 0;
 
 // Filter the Posts data
-filter.posts = function(data, postAmount) {
+filter.posts = function(data, postAmount, checkArray) {
 
   var _data = data;
+  var _checkArray = checkArray;
   var postsData = _data.data[0];
   var post = {};
-
-  // cover_photo
-  // share
 
   if (postsData.type) {
     post.type = postsData.type;
@@ -152,6 +150,7 @@ filter.posts = function(data, postAmount) {
       if ( postsData.url ) { post.url = postsData.url; }
         if ( postsData.media ) { post.image = [postsData.media.image.src]; }
         if ( postsData.title ) { post.text = postsData.title; }
+        post.event = true;
       break;
 
       case 'album':
@@ -176,8 +175,8 @@ filter.posts = function(data, postAmount) {
       break;
     }
 
+    post.originalText = post.text;
     if (post.text && post.text.length >= 120) {
-
       post.text = post.text.substring(0, 120);
       post.toLarge = true;
     }
@@ -188,6 +187,24 @@ filter.posts = function(data, postAmount) {
     if ( counter >= postAmount ) {
 
       // reorder the posts to date!
+      // filteredPosts.forEach(function(filteredPost, i) {
+      //   var oldIndex = i;
+      //   var newIndex = oldIndex;
+      //   if (filteredPost.originalText) {
+      //       newIndex = checkArray.indexOf(filteredPost.originalText);
+      //       if (newIndex = -1) {
+      //         console.log('errrr: ', filteredPost.originalText);
+      //         console.log(checkArray);
+      //         console.log(postsData);
+      //       }
+      //   }
+      //
+      //
+      //
+      //   console.log('newIndex: ', newIndex);
+      //   console.log('oldIndex: ', oldIndex);
+      // });
+
       template.render(filteredPosts, '#news-template', '.news-overview');
     }
   }

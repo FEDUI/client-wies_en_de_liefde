@@ -4,7 +4,7 @@ var keys = require('./keys');
 var filter = require('./filter');
 
 var facebook = {};
-var eventLink = {};
+var eventLink = [];
 
 facebook.getAcces = function() {
 
@@ -53,7 +53,7 @@ facebook.getPosts = function(accessToken) {
 facebook.getPostDetails = function(postId, accessToken, postAmount) {
 
   var url = 'https://graph.facebook.com/' + postId + '/attachments/?access_token=' + accessToken;
-  facebook.APICall(url, filter.posts, postAmount);
+  facebook.APICall(url, filter.posts, postAmount, eventLink);
 
 };
 
@@ -65,10 +65,10 @@ facebook.getEntirePost = function(data, accessToken) {
 
   posts.forEach(function(post) {
 
-    var postDate = post.created_time;
+    var postMessage = post.message;
     var postId = post.id;
 
-    eventLink[postId] = postDate;
+    eventLink.push(postMessage);
 
     facebook.getPostDetails(postId, accessToken, postAmount);
 
@@ -93,7 +93,7 @@ facebook.getEntirePost = function(data, accessToken) {
 
 
 
-facebook.APICall = function(url, callback, token) {
+facebook.APICall = function(url, callback, token, eventCheckArray) {
 
   var _url = url;
   var xhttp = new XMLHttpRequest();
@@ -101,7 +101,11 @@ facebook.APICall = function(url, callback, token) {
       if (xhttp.response) {
         var res = JSON.parse(xhttp.response);
         if (token) {
-          callback(res, token);
+          if (eventCheckArray) {
+            callback(res, token, eventCheckArray);
+          } else {
+            callback(res, token);
+          }
         } else {
           callback(res);
         }

@@ -25,7 +25,17 @@
     }
   }
   &--title {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    padding: .5rem;
+    margin: 0;
 
+    // font-size:
+    text-align: center;
+    color: $white;
+    background-color: #2b5f76;
+    background: linear-gradient(#2b5f76, transparent)
   }
 
   &--text {
@@ -43,6 +53,7 @@
     width: 100%;
   }
   &--img-container {
+    position: relative;
     max-height: 25rem;
     overflow: hidden;
 

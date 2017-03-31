@@ -1,4 +1,4 @@
-const bandmembers = document.querySelectorAll('.overflow--text');
+var bandmembers = document.querySelectorAll('.overflow--text');
 
 function getAllParags(article) {
   var parags = article.querySelectorAll('p');

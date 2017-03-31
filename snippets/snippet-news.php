@@ -9,12 +9,12 @@
   {{#each this}}
     <li class="news-overview--item news-item news-item--{{this.type}} {{#if this.text}}includes-text{{/if}}">
       {{#if this.url}}<a href="{{url}}" class="news-item--link" target="_blank">{{/if}}
-        {{#if this.event}}<h2 class="news-item--title">Optreden</h2>{{/if}}
         {{#if this.image}}
           <div class="news-item--img-container">
             {{#each this.image}}
               <img src="{{this}}" class="news-item--img" alt="{{#if this.text}}{{text}}{{/if}}" />
             {{/each}}
+            {{#if this.event}}<h2 class="news-item--title">Optreden</h2>{{/if}}
           </div>
         {{/if}}
         {{#if this.text}}

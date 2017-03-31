@@ -1,9 +1,9 @@
 var facebook = require('./modules/facebook');
-const instagram = require('./modules/instagram');
+var instagram = require('./modules/instagram');
 
 window.addEventListener('DOMContentLoaded', function() {
   // Menu
-  const menu = require('./modules/nav');
+  var menu = require('./modules/nav');
   menu.set();
 
   // Modernizr to check for the CSS mask of the SVG

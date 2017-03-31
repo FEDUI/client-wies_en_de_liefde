@@ -2,6 +2,7 @@
 
   &--name {
     margin: 0;
+    vertical-align: middle;
 
     @include min-width($align-calendar-content) {
       width: 18.25rem;
@@ -11,6 +12,7 @@
   &--city {
     margin: 0;
     font-family: $montserrat-bold;
+    vertical-align: middle;
 
     @include min-width($align-calendar-content) {
       display: inline-block;
