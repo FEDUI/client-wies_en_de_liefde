@@ -26,8 +26,19 @@
       {{#if this.url}}</a>{{/if}}
     </li>
   {{/each}}
+
+  <?php
+    $url = $_SERVER['REQUEST_URI'];
+    if ( $url === '/' ) {
+      $url = "/nieuws/";
+      $target = '';
+    } else {
+      $url = "https://www.facebook.com/pg/wiesendeliefde/posts/";
+      $target = '_blank';
+    }
+  ?>
   <li class="news-overview--item news-item includes-text">
-    <a href="{{url}}" class="news-item--link see-more" target="_blank">
+    <a href="<?php echo $url ?>" class="news-item--link see-more" target="<?php echo $target ?>">
       <p class="news-item--text">Bekijk al ons nieuws</p>
     </a>
   </li>

@@ -12,7 +12,7 @@ Template Name: Calendar
   <section class="calendar">
     <?php Template::Render('./snippets/snippet-calendar'); ?>
 
-    <a href="" class="calendar--more more">Bekijk alle evenementen</a>
+    <a href="https://www.facebook.com/pg/wiesendeliefde/events/" class="calendar--more more" target="_blank">Bekijk alle evenementen</a>
   </section>
 
 </main>
