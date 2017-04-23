@@ -1,0 +1,19 @@
+.insta {
+  position: relative;
+  display: block;
+  @include tape;
+
+  background-color: $white;
+  @include card-shadow;
+  @include card-padding;
+
+  &--img {
+    width: 100%;
+  }
+  &--video {
+    width: 100%;
+  }
+  &--video-container {
+
+  }
+}

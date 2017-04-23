@@ -31,7 +31,6 @@
 // You will need $container, $bp-container and $gutter variables
 @mixin container($include-padding: "true") {
   max-width: $container;
-  margin: 0 auto;
 
   @if ($include-padding == "true") {
     padding-left: $gutter;
@@ -74,18 +73,58 @@
 // Create a grid and adjust the values to adjust the amount of items and breakpoints of the grid
 @mixin grid($el, $bp-half: 600px, $bp-third: 900px) {
   margin: 0 -#{$gutter};
+  padding: 0;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
   #{$el} {
-    width: calc(100% - #{$double-gutter});
-    display: inline-block;
-    margin: 1rem $gutter;
+    width: 100%; height: 100%;
+    min-height: 1px;
+    display: inline-block !important;
+    padding: 1rem $gutter;
+
     vertical-align: top;
 
     @include min-width($bp-half) {
-      width: calc(49% - #{$double-gutter});
+      width: 48%;
     }
     @include min-width($bp-third) {
-      width: calc(33% - #{$double-gutter});
+      width: 33%;
     }
+  }
+}
+
+// Make the box shadow on a card item
+@mixin card-shadow {
+  box-shadow: 2px 4px 4px rgba($black, .1);
+}
+@mixin card-padding {
+  padding: .5rem .5rem 2.6rem .5rem;
+}
+
+
+
+@mixin home-right-container {
+  max-width: 41.25rem;
+  margin-left: auto;
+
+  @include min-width(1100px) {
+    margin-right: 6.875rem;
+  }
+}
+
+
+@mixin tape {
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%;
+    width: 10rem; height: 3rem;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    background-image: url("../img/icons/tape.png");
   }
 }

@@ -1,0 +1,10 @@
+a {
+  color: $brand-primary;
+  word-break: break-word;
+
+  transition: .2s color;
+
+  @include hocus {
+    color: lighten($brand-primary, 20%);
+  }
+}

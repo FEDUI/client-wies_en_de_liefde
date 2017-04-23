@@ -1,0 +1,42 @@
+$footer-margin: 2rem;
+
+.footer {
+  width: 100%;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 2rem 2rem 2rem;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;
+
+  @include min-width(1100px) {
+    justify-content: space-between;
+  }
+
+  &--greetz {
+    max-width: 12.5rem;
+    display: inline-block;
+    margin: 0 1rem $footer-margin 1rem;
+  }
+  &--greetz-img {
+    width: 100%;
+  }
+
+  &--newsletter {
+    max-width: 35.3125rem;
+    width: 100%;
+    display: inline-block;
+    margin: 0 1rem $footer-margin 1rem;
+  }
+  &--social-media .social-media {
+    width: 11rem;
+    display: inline-flex;
+    margin: 0 1rem $footer-margin 1rem;
+  }
+  &--social-media .social-media--link {
+    margin: 0 0.1rem;
+  }
+}

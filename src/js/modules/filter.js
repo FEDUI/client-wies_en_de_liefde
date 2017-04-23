@@ -7,7 +7,7 @@ var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep',
 
 filter.events = function(data) {
 
-    var _data = filter.parse(data);
+    var _data = data;
     var events = _data.events.data;
     var d = new Date();
     var currentMonth = d.getMonth() + 1;
@@ -125,66 +125,88 @@ var filteredPosts = [];
 var counter = 0;
 
 // Filter the Posts data
-filter.posts = function(data, postAmount) {
+filter.posts = function(data, postAmount, checkArray) {
 
-  var _data = JSON.parse(data);
+  var _data = data;
+  var _checkArray = checkArray;
   var postsData = _data.data[0];
   var post = {};
 
-  if ( postsData.type === 'photo' ) {
-    post.photo = 'photo';
+  if (postsData.type) {
+    post.type = postsData.type;
 
-    if ( postsData.description ) {
-      post.text = postsData.description;
+    switch (postsData.type) {
+      case 'share':
+      case 'photo':
+      case 'cover_photo':
+      case 'profile_media':
+        post.type = 'photo';
+        if ( postsData.url ) { post.url = postsData.url; }
+        if ( postsData.description ) { post.text = postsData.description; }
+        if ( postsData.media ) { post.image = [postsData.media.image.src]; }
+      break;
+
+      case 'event':
+      if ( postsData.url ) { post.url = postsData.url; }
+        if ( postsData.media ) { post.image = [postsData.media.image.src]; }
+        if ( postsData.title ) { post.text = postsData.title; }
+        post.event = true;
+      break;
+
+      case 'album':
+      if ( postsData.url ) { post.url = postsData.url; }
+         if (postsData.subattachments) {
+           post.image = [];
+           postsData.subattachments.data.forEach(function(photo, i) {
+             if (i <= 3) {
+               post.image.push(photo.media.image.src);
+             }
+           });
+         }
+      break;
+
+      case 'video_autoplay':
+      case 'video_share_youtube':
+      // @TODO: Get the url to the video!
+        post.type = 'video';
+        if ( postsData.url ) { post.url = postsData.url; }
+        if ( postsData.target.url ) { post.image = [postsData.media.image.src]; }
+        if (postsData.description) {post.text = postsData.title; }
+      break;
     }
 
-    if ( postsData.media ) {
-      post.image = [postsData.media.image.src];
-    }
-  }
-
-  if ( postsData.type === 'event' ) {
-    post.event = 'event';
-
-    if ( postsData.media ) {
-      post.image = [postsData.media.image.src];
+    post.originalText = post.text;
+    if (post.text && post.text.length >= 120) {
+      post.text = post.text.substring(0, 120);
+      post.toLarge = true;
     }
 
-    post.text = postsData.title;
-  }
+    filteredPosts.push(post);
+    counter ++;
 
-  if ( postsData.type === 'album' ) {
-    post.album = 'album';
+    if ( counter >= postAmount ) {
 
-    if (postsData.subattachments) {
+      // reorder the posts to date!
+      // filteredPosts.forEach(function(filteredPost, i) {
+      //   var oldIndex = i;
+      //   var newIndex = oldIndex;
+      //   if (filteredPost.originalText) {
+      //       newIndex = checkArray.indexOf(filteredPost.originalText);
+      //       if (newIndex = -1) {
+      //         console.log('errrr: ', filteredPost.originalText);
+      //         console.log(checkArray);
+      //         console.log(postsData);
+      //       }
+      //   }
+      //
+      //
+      //
+      //   console.log('newIndex: ', newIndex);
+      //   console.log('oldIndex: ', oldIndex);
+      // });
 
-      post.image = [];
-
-      postsData.subattachments.data.forEach(function(photo) {
-        post.image.push(photo.media.image.src);
-      });
+      template.render(filteredPosts, '#news-template', '.news-overview');
     }
-  }
-
-  if ( postsData.type === 'video_autoplay' || postsData.type === 'video_share_youtube' ) {
-    if ( postsData.target.url ) {
-      post.image = [postsData.media.image.src];
-    }
-
-    if (postsData.title) {
-      post.text = postsData.title;
-    }
-  }
-
-  if ( postsData.target ) {
-    post.url = postsData.target.url;
-  }
-
-  filteredPosts.push(post);
-  counter ++;
-
-  if ( counter >= postAmount ) {
-    template.render(filteredPosts, '#news-template', '.news-overview');
   }
 };
 

@@ -1,5 +1,20 @@
 .menu-collapse {
   .nav {
     transform: translateX(0);
+    z-index: 300;
+  }
+
+  .menu-toggle {
+    .hamburger {
+      &-top {
+        transform: rotate(-315deg) translateY(0);
+      }
+      &-middle {
+        opacity: 0;
+      }
+      &-bottom {
+        transform: rotate(-45deg) translateY(0);
+      }
+    }
   }
 }

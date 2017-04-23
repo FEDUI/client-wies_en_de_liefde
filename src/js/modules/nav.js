@@ -1,12 +1,10 @@
-// TODO: add babel
+var body = document.querySelector('body');
+var toggleButton = document.querySelector('.menu-toggle');
 
-const body = document.querySelector('body');
-const toggleButton = document.querySelector('.menu-toggle');
-
-const toggleBreakpoint = 900;
+var toggleBreakpoint = 900;
 var classListToggle = false;
 
-const menu = {
+var menu = {
   set: function() {
     if ( window.innerWidth <= toggleBreakpoint ) {
       toggleButton.addEventListener('click', this.click, false);

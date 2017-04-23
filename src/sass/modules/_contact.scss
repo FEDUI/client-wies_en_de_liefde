@@ -1,0 +1,50 @@
+.contact {
+  &--item {
+    @include container();
+    margin-left: auto;
+    margin-right: auto;
+
+    &.social-media {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  &--wies {
+    width: 100%;
+  }
+  &--wies-container {
+    position: relative;
+    max-width: 20.625rem;
+    width: 100%;
+    margin-right: 1rem; margin-bottom: 2rem;
+    @include card-padding;
+    @include card-shadow;
+    background-color: $white;
+
+    @include tape();
+
+    @include min-width(740px) {
+      float: left;
+    }
+    @include min-width(800px) {
+      float: none;
+    }
+    @include min-width(970px) {
+      float: left;
+    }
+  }
+
+  p {
+    max-width: 30rem;
+
+    @include min-width(740px) {
+      max-width: 100%;
+    }
+    @include min-width(800px) {
+      max-width: 30rem;
+    }
+    @include min-width(970px) {
+      max-width: 100%;
+    }
+  }
+}

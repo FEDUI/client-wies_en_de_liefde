@@ -1,0 +1,9 @@
+.pictures {
+
+   &--list {
+    @include grid(".pictures--item", 450px, 650px);
+   }
+   &--item {
+    list-style-type: none;
+   }
+}

@@ -7,6 +7,14 @@ Template Name: Calendar
 
 <?php get_header(); ?>
 
-<h1></h1>
+<main>
+  <h1 class="main--title"><?php echo get_the_title(); ?></h1>
+  <section class="calendar">
+    <?php Template::Render('./snippets/snippet-calendar'); ?>
+
+    <a href="https://www.facebook.com/pg/wiesendeliefde/events/" class="calendar--more more" target="_blank">Bekijk alle evenementen</a>
+  </section>
+
+</main>
 
 <?php get_footer(); ?>

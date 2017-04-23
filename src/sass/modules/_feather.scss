@@ -1,0 +1,19 @@
+.feather {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0rem; right: 0rem;
+    width: 5.5rem; height: 10rem;
+
+    background-image: url("../img/decoration/feather.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 20;
+
+    @include min-width(900px) {
+      width: 9rem; height: 17rem;
+    }
+  }
+}

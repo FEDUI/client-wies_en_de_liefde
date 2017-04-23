@@ -17,6 +17,24 @@
 
 	add_action( 'wp_enqueue_scripts', 'wedl_scripts' );
 
+	/**
+	 * Register our sidebars and widgetized areas.
+	 *
+	 */
+	function arphabet_widgets_init() {
+
+		register_sidebar( array(
+			'name'          => 'Mailchimp Sidebar',
+			'id'            => 'footer_bottom_1',
+			'before_widget' => '<div>',
+			'after_widget'  => '</div>',
+			'before_title'  => '<h2 class="rounded">',
+			'after_title'   => '</h2>',
+		) );
+
+	}
+	add_action( 'widgets_init', 'arphabet_widgets_init' );
+
 	function register_my_menu() {
   	register_nav_menu('header-menu',__( 'Header Menu' ));
 	}
@@ -61,4 +79,37 @@
 			}
 		}
 	}
+
+
+	/**
+	 * Hide editor on specific pages.
+	 *
+	 */
+	add_action( 'admin_init', 'hide_editor' );
+	function hide_editor() {
+	  // Get the Post ID.
+	  $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
+	  if( !isset( $post_id ) ) return;
+	  // Hide the editor on a page with a specific page template
+	  // Get the name of the Page Template file.
+	  $template_file = get_post_meta($post_id, '_wp_page_template', true);
+	  if($template_file == 'template_about.php'){ // the filename of the page template
+	    remove_post_type_support('page', 'editor');
+	  }
+	}
+
+
+
+
+
+	// Make every page have an uitgelichte afbeelding
+	add_theme_support( 'post-thumbnails' );
+
+
+
+
+
+
+
+
 ?>
