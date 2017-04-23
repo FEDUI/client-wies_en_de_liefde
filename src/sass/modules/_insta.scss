@@ -1,5 +1,7 @@
 .insta {
+  position: relative;
   display: block;
+  @include tape;
 
   background-color: $white;
   @include card-shadow;

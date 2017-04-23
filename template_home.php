@@ -71,7 +71,9 @@
 	<section class="home--section home--contact contact">
 		<h2 class="home--sub-title contact--title">Contact</h2>
 		<article class="contact--item">
-	    <img class="contact--wies" src="<?php echo get_template_directory_uri(); ?>/dist/img/hero/wies.png" alt="Afbeelding van Wies Kavelaar">
+			<div class="contact--wies-container">
+	      <img class="contact--wies" src="<?php echo get_template_directory_uri(); ?>/dist/img/hero/footer-xs.jpg" alt="Afbeelding van Wies Kavelaar">
+	    </div>
 			<?php
 			    // query for the about page
 			    $your_query = new WP_Query( 'pagename=contact' );
