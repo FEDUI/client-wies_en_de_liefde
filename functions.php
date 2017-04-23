@@ -96,6 +96,12 @@
 	  if($template_file == 'template_about.php'){ // the filename of the page template
 	    remove_post_type_support('page', 'editor');
 	  }
+		if($template_file == 'template_calendar.php'){ // the filename of the page template
+	    remove_post_type_support('page', 'editor');
+	  }
+		if($template_file == 'template_photowall.php'){ // the filename of the page template
+	    remove_post_type_support('page', 'editor');
+	  }
 	}
 
 

@@ -7,6 +7,8 @@ var monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Aug', 'Sep',
 
 filter.events = function(data) {
 
+  console.log('data', data);
+
     var _data = data;
     var events = _data.events.data;
     var d = new Date();
