@@ -2,7 +2,6 @@
   list-style-type: none;
   margin: 1rem;
 
-  // @TODO: make this dynamic
   font-size: 1.5rem;
 
   @include min-width($bp-full-menu) {
@@ -29,7 +28,7 @@
       transition: .3s transform;
       transform-origin: 0%;
 
-      background-color: rgba($brand-primary, .6);
+      background-color: rgba($black, .6);
     }
 
     &:hover, &:focus, &:active {
@@ -42,7 +41,8 @@
 
 .current_page_item {
   a {
-    color: $brand-primary;
+    color: darken($black, 10%);
+    font-family: $montserrat-bold;
 
     &:after {
       transform: scaleX(1);

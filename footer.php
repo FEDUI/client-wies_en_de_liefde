@@ -11,5 +11,10 @@
     <?php Template::Render('./snippets/snippet-social-media'); ?>
   </div>
 </footer>
+
+<?php $feather = get_field('mood-feather'); ?>
+<?php if ($feather) { ?>
+  <img class="feather" src="<?php echo $feather['url']; ?>" alt="">
+<?php } ?>
 </body>
 </html>

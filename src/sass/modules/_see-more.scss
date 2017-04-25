@@ -1,4 +1,23 @@
 .see-more {
   padding: 2rem 4rem 2.3rem 4rem;
   font-size: 1.2em;
+
+  &--action {
+    display: table;
+    padding: 0.5rem 1.5rem;
+
+
+    background-color: $brand-primary;
+    color: $white;
+    text-decoration: none;
+    @include adjust($base-font-size);
+    border-radius: 10px;
+
+    transition: .3s background-color;
+
+    @include hocus {
+      background-color: lighten($brand-primary, 20%);
+      color: $white;
+    }
+  }
 }

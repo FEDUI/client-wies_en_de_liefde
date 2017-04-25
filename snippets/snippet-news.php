@@ -38,7 +38,7 @@
     }
   ?>
   <li class="news-overview--item news-item includes-text">
-    <a href="<?php echo $url ?>" class="news-item--link see-more" target="<?php echo $target ?>">
+    <a href="<?php echo $url ?>" class="see-more--action" target="<?php echo $target ?>">
       <p class="news-item--text">Bekijk al ons nieuws</p>
     </a>
   </li>

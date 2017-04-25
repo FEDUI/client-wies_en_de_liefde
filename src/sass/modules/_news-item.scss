@@ -7,6 +7,10 @@
     }
   }
 
+  .see-more--action {
+    margin: 1rem;
+  }
+
   &--link {
     position: relative;
     display: block;
@@ -24,7 +28,12 @@
 
     @include hocus {
       color: inherit;
-      transform: scale(1.1) rotate(-1deg);
+      transform: scale(1.02) rotate(-1deg);
+    }
+
+    &.see-more {
+      @extend .bus-prev--link;
+      margin-left: 0;
     }
   }
   &--title {

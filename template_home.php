@@ -26,7 +26,7 @@
 		<div class="calendar">
 	    <?php Template::Render('./snippets/snippet-calendar'); ?>
 
-	    <a href="/agenda" class="calendar--more more">Bekijk al onze optredens</a>
+	    <a href="/agenda" class="calendar--more more see-more--action">Bekijk al onze optredens</a>
 	  </div>
 	</section>
 

@@ -8,15 +8,19 @@
   <meta name="keywords" content="Muziek,de liefde,Wies en de Liefde,Bus,Buslading Muziek">
   <meta name="author" content="Wies Kavelaar">
 </head>
-<body class="feather">
+<body>
 	<?php
 		$headerLogo = get_field('mood-logo');
 	?>
-	<header class="main-header" style="background-image: url('<?php echo $headerLogo['url']; ?>')">
+	<header class="main-header">
 		<button class="main-header--button menu-toggle">
 			<?php Template::Render('icon-hamburger'); ?>
 			<span class="menu-toggle--name">Menu</span>
 		</button>
+
+		<?php if ($headerLogo) { ?>
+			<img class="main-header--img logo" src="<?php echo $headerLogo['url']; ?>" alt="">
+		<?php } ?>
 
 		<?php Template::Render('main-nav'); ?>
 
