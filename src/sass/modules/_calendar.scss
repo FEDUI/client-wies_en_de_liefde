@@ -52,4 +52,10 @@
   &--more {
 
   }
+
+  &--home {
+    @include min-width(950px) {
+      padding-left: 3rem;
+    }
+  }
 }

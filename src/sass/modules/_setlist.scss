@@ -1,8 +1,22 @@
+$setlist-left: 6rem;
+
 .setlist {
   max-width: 62.5rem;
 
+  @include min-width(800px) {
+    margin-top: -6rem;
+  }
+
   &--title {
-    max-width: 41.875rem;
+    max-width: 25rem;
+
+    @include min-width(800px) {
+      margin-left: $setlist-left;
+    }
+
+    @include min-width(1400px) {
+      max-width: 41.875rem;
+    }
   }
   &--title-img {
     width: 100%;
@@ -29,12 +43,27 @@
   }
 
   &--item {
-    max-width: 23rem;
+    // max-width: 23rem;
+    display: table;
 
     list-style-type: none;
     margin: 2rem;
+    margin: 2rem 0;
 
-    @include min-width(700px) {
+    img {
+      max-height: 1.375rem;
+      width: auto;
+    }
+
+    @include min-width(400px) {
+      img {
+        max-height: 2.375rem;
+      }
+    }
+    @include min-width(650px) {
+      margin: 2rem $setlist-left;
+    }
+    @include min-width(1300px) {
       max-height: 4.375rem;
       max-width: 100%;
     }
@@ -61,6 +90,7 @@
 
     @include min-width(700px) {
       width: auto;
+      height: 100%;
       display: inline-block;
     }
   }

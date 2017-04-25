@@ -1,5 +1,7 @@
 .main-header {
 
+  background-size: 100%;
+
   @include min-width($bp-full-menu) {
     position: fixed;
     top: 0; bottom: 0;

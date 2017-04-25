@@ -21,7 +21,7 @@
 		?>
 	</section>
 
-	<section class="home--section">
+	<section class="home--section calendar--home">
 		<h2 class="home--sub-title">Agenda</h2>
 		<div class="calendar">
 	    <?php Template::Render('./snippets/snippet-calendar'); ?>
