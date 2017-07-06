@@ -1,43 +1,42 @@
-var frames = document.querySelectorAll('.frame');
+var frames = document.querySelectorAll('.has-frame');
 
-// Loop thrue all the setlist items
 for (var i = 0; i < frames.length; i++) {
-  var frame = frames[i];
-  console.dir(frame);
-  var outerElement = frame.parentNode; // Get the outer element of a frame
-  outerElement.addEventListener('click', showVideo); // Add eventListener on list item
-  outerElement.classList.add('setlist--hover');
+  var item = frames[i];
+  var frame = {
+    trigger: item,
+    videoContainer: item.querySelector('.frame'),
+    removeTrigger: item.querySelector('.frame--remove')
+  };
+
+  setTriggers(frame);
 }
 
-// All actions to show the video
-function showVideo(e) {
-  var videoContainer = this.querySelector('.frame');
-  videoContainer.classList.remove('frame--hide');
-  videoContainer.classList.add('frame--show');
-
-  setRemoveListener(videoContainer); // Add the listeners to remove a video
+function checkEsc(e) {
+  if (e.keyCode === 27) { removeVideo(); }
 }
 
-// All the actions to remove the video
 function removeVideo() {
   var currentVideo = document.querySelector('.frame--show');
   if (!currentVideo) { return; }
 
-  currentVideo.classList.add('frame--hide');
+  currentVideo.classList.add('frame--hide')
   currentVideo.classList.remove('frame--show');
 }
 
-// Check if the key pressed is the esc key
-function checkEsc(e) {
-  if (e.keyCode === 27) {
-      removeVideo();
-  }
+function showVideo(e) {
+  if ( e.target.computedRole === 'button' ) { return; }
+
+  var _info = this.info;
+  _info.videoContainer.classList.remove('frame--hide')
+  _info.videoContainer.classList.add('frame--show');
+  _info.removeTrigger.addEventListener('click', removeVideo);
+  window.addEventListener('keydown', checkEsc);
 }
 
-// Add all the remove listeners where needed
-function setRemoveListener(videoContainer) {
-  var button = videoContainer.querySelector('button');
+function setTriggers(el) {
+  var _el = el;
+  _el.trigger.info = _el;
 
-  button.addEventListener('click', removeVideo);
-  window.addEventListener('keydown', checkEsc);
+  _el.trigger.addEventListener('click', showVideo, false);
+  _el.trigger.classList.add('setlist--hover');
 }

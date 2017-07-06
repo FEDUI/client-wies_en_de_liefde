@@ -1,0 +1,21 @@
+$font-name: "montserrat-regular";
+$font-dir: "montserrat";
+@font-face {
+	font-family: "Montserrat Regular";
+	src: url("../fonts/#{$font-dir}/regular/#{$font-name}.eot");
+	src: url("../fonts/#{$font-dir}/regular/#{$font-name}.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/#{$font-dir}/regular/#{$font-name}.woff2") format("woff2"),
+			url("../fonts/#{$font-dir}/regular/#{$font-name}.woff") format("woff"),
+			url("../fonts/#{$font-dir}/regular/#{$font-name}.ttf") format("truetype");
+}
+
+$font-name: "montserrat-bold";
+$font-dir: "montserrat";
+@font-face {
+	font-family: "Montserrat Bold";
+	src: url("../fonts/#{$font-dir}/bold/#{$font-name}.eot");
+	src: url("../fonts/#{$font-dir}/bold/#{$font-name}.eot?#iefix") format("embedded-opentype"),
+			url("../fonts/#{$font-dir}/bold/#{$font-name}.woff2") format("woff2"),
+			url("../fonts/#{$font-dir}/bold/#{$font-name}.woff") format("woff"),
+			url("../fonts/#{$font-dir}/bold/#{$font-name}.ttf") format("truetype");
+}

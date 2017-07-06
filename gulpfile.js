@@ -31,7 +31,7 @@ gulp.task('sass', function() {
 		}))
 		.pipe(rename(config.sass.destFile))
 		.pipe(gulp.dest(config.base + config.sass.folder))
-
+		.pipe(gulp.dest('./'))
 });
 
 // copy images

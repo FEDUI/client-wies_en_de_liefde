@@ -1,0 +1,3 @@
+.news-overview {
+  @include grid(".news-item", 600px, 1200px);
+}

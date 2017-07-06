@@ -1,0 +1,32 @@
+.home {
+
+  &--introduction {
+    @include home-right-container;
+
+    iframe {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &--section {
+    margin-bottom: 8rem;
+
+    @include min-width(1000px) {
+      margin-bottom: 9rem;
+    }
+  }
+  &--sub-title {
+    @include adjust($h2-like);
+  }
+
+  .calendar {
+    @include min-width($align-calendar-content) {
+      margin-left: 0;
+    }
+  }
+
+  &--contact {
+    @include home-right-container;
+  }
+}

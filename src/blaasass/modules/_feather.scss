@@ -1,0 +1,16 @@
+.feather {
+  position: relative;
+
+  &:after {
+    content: "";
+    position: fixed;
+    top: 0rem; right: -3rem;
+    width: 13rem; height: 17rem;
+
+    background-image: url("../img/decoration/feather.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    // Make feather bigger on smaller screens
+  }
+}

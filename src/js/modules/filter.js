@@ -21,7 +21,6 @@ filter.events = function(data) {
 
         var gig = {};
 
-        // ToDo: Butify this with the checkExistance function
         if ( event.name) {
             gig.title = event.name;
         } else {
@@ -30,7 +29,11 @@ filter.events = function(data) {
         if ( event.place && event.place.location && event.place.location.city ) {
             gig.city = event.place.location.city;
         } else {
-            gig.city = unknown;
+            if ( event.place && event.place.name ) {
+              gig.city = event.place.name;
+            } else {
+              gig.city = unknown;
+            }
         }
         if ( event.place && event.place.name ) {
             gig.locationName = event.place.name;
@@ -61,6 +64,18 @@ filter.events = function(data) {
             gig.done = 'true';
             pastEvents.push(gig);
           }
+        }
+
+        if ( gig.locationName === gig.city ) {
+          var title = gig.title;
+          var dash = title.indexOf('-');
+          var newTitle = title.slice(dash + 1, title.length);
+
+          if (newTitle.indexOf(' ') === 0) {
+            newTitle = newTitle.slice(1, newTitle.length);
+          }
+
+          gig.locationName = newTitle;
         }
     });
 

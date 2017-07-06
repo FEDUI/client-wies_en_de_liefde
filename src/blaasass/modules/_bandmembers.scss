@@ -1,0 +1,17 @@
+.bandmembers {
+  max-width: 80rem;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  &--sub-title {
+    width: 100%;
+    @include adjust($h2-like);
+  }
+
+  @include min-width(1200px) {
+    display: block;
+  }
+}

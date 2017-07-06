@@ -10,9 +10,8 @@
 
 	// Get the stylesheet and script
 	function wedl_scripts() {
-		// Theme stylesheet.
-		wp_enqueue_style( 'wiesendeliefde-style', get_template_directory_uri() . '/dist/css/style.min.css');
-		wp_enqueue_script( 'wiesendeliefde-script', get_template_directory_uri() . '/dist/js/main.min.js');
+		wp_enqueue_script( 'wiesendeliefde-script', get_template_directory_uri() . '/dist/js/main.min.js', false, filemtime(get_stylesheet_directory() . '/dist/js/main.min.js'));
+		wp_enqueue_style('wiesendeliefde-style', get_template_directory_uri() . '/dist/css/style.min.css', false, filemtime(get_stylesheet_directory() . '/style.min.css'));
 	}
 
 	add_action( 'wp_enqueue_scripts', 'wedl_scripts' );

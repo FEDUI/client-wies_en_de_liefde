@@ -22,7 +22,7 @@ Template Name: Setlist
           // loop through the rows of data
           while ( have_rows('setlist') ) : the_row();
           ?>
-          <li class="setlist--item">
+          <li class="setlist--item <?php if ( get_sub_field('link') ) { ?>has-frame<?php } ?>">
             <div class="setlist--img-container">
               <?php $image = get_sub_field('image');
                     $extraImage = get_sub_field('extra-img');

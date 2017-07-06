@@ -1,0 +1,63 @@
+.bus {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  &--movie {
+    width: 100%;
+    margin-bottom: 7rem;
+
+    @include min-width($bp-reorder-bus) {
+      order: 1;
+      margin-bottom: 13rem;
+      margin-left: auto;
+    }
+
+    &-frame {
+      width: 100%;
+      margin-right: 20%;
+
+      @include min-width(740px) {
+        width: 35rem;
+        float: right;
+      }
+    }
+  }
+
+  &--article {
+    max-width: 40rem;
+    display: inline-block;
+    margin-left: auto;
+    margin-bottom: 3rem;
+
+    @include min-width($bp-reorder-bus) {
+      order: 3;
+      width: calc(50% - 1rem);
+      margin-left: 1rem;
+    }
+
+    p {
+
+    }
+  }
+
+  &--impression {
+    max-width: 40rem;
+    width: 100%;
+    display: inline-block;
+    margin-right: auto;
+
+    @include min-width($bp-reorder-bus) {
+      order: 2;
+      width: calc(50% - 1rem);
+    }
+  }
+
+  &--footer {
+    width: 100%;
+
+    @include min-width($bp-reorder-bus) {
+      order: 4;
+    }
+  }
+}

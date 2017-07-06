@@ -1,0 +1,16 @@
+.affaires {
+  max-width: 80rem;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  h2 {
+    width: 100%;
+  }
+
+  @include min-width(1200px) {
+    display: block;
+  }
+}

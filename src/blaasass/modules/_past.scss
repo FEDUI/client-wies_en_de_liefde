@@ -1,0 +1,10 @@
+.past {
+  color: $gray;
+
+  .calendar-item--link {
+    @include hocus {
+      color: $gray;
+      cursor: default;
+    }
+  }
+}

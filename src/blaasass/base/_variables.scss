@@ -1,0 +1,92 @@
+// Base Colors
+$black:   #383838;
+$white:   #fff;
+$gray:    #b9b3bf;
+$yellow:  #E1CE7F;
+
+// Project Colors
+$brand-primary: tomato;
+$brand-primary-darken: darken($brand-primary, 20%);
+
+$brand-secondary: $yellow;
+
+$text:    $black;
+
+// Fonts-sizes
+$base-font-size: (
+  xs: 1rem,
+  sm: 1.1rem,
+  md: 1.125rem,
+  lg: 1.125rem   // 18px
+);
+
+$font-size-band-member: (
+  xs: 1.2rem,
+  sm: 1.4rem,
+  md: 1.5rem,
+  lg: 1.6rem
+);
+$font-size-lovers: (
+  xs: 1.1rem,
+  sm: 1.2rem,
+  md: 1.3rem,
+  lg: 1.3rem
+);
+
+$prev-font-size: (
+  xs: 3rem,
+  sm: 3.2rem,
+  md: 3.4rem,
+  lg: 3.625rem // 58px
+);
+
+$h2-like: (
+  xs: 2rem,
+  sm: 2.1rem,
+  md: 2.2rem,
+  lg: 2.3125rem // 58px
+);
+// Fonts
+$montserrat: "Montserrat Regular", sans-serif;
+$montserrat-bold: "Montserrat Bold", sans-serif;
+
+$title-font: "Fira Sans", sans-serif;
+
+// Layout
+$container:      45rem;
+$gutter:         1.28rem;
+$double-gutter:  $gutter * 2;
+
+// Grids
+$grid: (
+  540px: 2,
+  900px: 4
+);
+
+// Global used measurements
+$header-margin: 1rem;
+$header-margin-m: 15rem;
+$header-margin-l: 31.25rem;
+
+// Global used breakpoints
+  // Layout
+  $bp-container: $container + $double-gutter;
+
+  // Menu
+  $bp-full-menu: 800px;
+  $bp-full-size-menu: 1500px;
+
+  // Calendar
+  $align-calendar-content: 615px;
+
+  // About
+  $bp-first-bandmember-divide: 750px;
+
+  // Bus
+  $bp-reorder-bus: 1300px;
+
+  // The breakpoint for the adjust mixin
+  $adjust-xs: 500px;
+  $adjust-sm: 800px;
+  $adjust-md: 1000px;
+  $adjust-lg: 1300px;
